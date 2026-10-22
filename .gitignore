@@ -1,0 +1,12 @@
+.Rhistory
+.RData
+.Rproj.user/
+.quarto/
+*_files/
+!docs/**/*_files/
+~$*
+.~lock*#
+.DS_Store
+
+/.quarto/
+**/*.quarto_ipynb

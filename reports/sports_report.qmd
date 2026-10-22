@@ -1,0 +1,45 @@
+---
+title: "Sports Data report: your title here"
+author: "Your Name"
+---
+
+## 1. Question and context
+
+Which question do you ask about your sport, and why does it matter? Name the groups (your grouping variable) that you compare.
+
+## 2. Data
+
+Source and APA citation (from the dataset's page in the SCORE Sports Data Repository), what one row represents, and the sample size.
+
+```{r}
+#| label: read-data
+#| eval: false
+library(tidyverse)
+
+# Read the tidy CSV that your script in scripts/ wrote to data/tidy/
+my_data <- read_csv("../data/tidy/your_file.csv")
+```
+
+## 3. Tidying summary
+
+Summarize in a few sentences which problems you fixed and how; link to your script, for example [`scripts/02_tidy_sports.R`](../scripts/02_tidy_sports.R).
+
+## 4. Figures
+
+Three figures. Under each, explain your design choices (geom, mappings, scales, facets, colors). Give each figure `fig-cap` and `fig-alt`.
+
+## 5. What the figures show
+
+Describe the patterns and differences that the figures show.
+
+## 6. Limitations
+
+Provenance of the data, small groups (fewer than 30 rows), and what the data cannot tell us.
+
+## 7. References
+
+APA references: the dataset, the SCORE Sports Data Repository, and any other sources you used.
+
+## 8. AI-use statement
+
+State whether and how you used AI tools, following the course policy.

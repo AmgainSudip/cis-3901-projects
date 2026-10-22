@@ -1,0 +1,29 @@
+---
+title: "Sports Data: your title here"
+author: "Your Name"
+format: revealjs
+# The oral presentation (Fri, Dec 4) is about 7 minutes: plan about 1 minute per slide.
+---
+
+## Question
+
+Your question about your sport, and the groups you compare.
+
+## Main figure
+
+```{r}
+#| label: main-figure
+#| eval: false
+library(tidyverse)
+
+my_data <- read_csv("../data/tidy/your_file.csv")
+# Your ggplot code here; add fig-cap and fig-alt
+```
+
+## What it shows
+
+The patterns and differences that the figure shows.
+
+## Limitations
+
+Provenance, small groups, and what the data cannot tell us.

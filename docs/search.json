@@ -1,0 +1,212 @@
+[
+  {
+    "objectID": "presentations/sports_slides.html#question",
+    "href": "presentations/sports_slides.html#question",
+    "title": "Sports Data: your title here",
+    "section": "Question",
+    "text": "Question\nYour question about your sport, and the groups you compare."
+  },
+  {
+    "objectID": "presentations/sports_slides.html#main-figure",
+    "href": "presentations/sports_slides.html#main-figure",
+    "title": "Sports Data: your title here",
+    "section": "Main figure",
+    "text": "Main figure\n\nlibrary(tidyverse)\n\nmy_data &lt;- read_csv(\"../data/tidy/your_file.csv\")\n# Your ggplot code here; add fig-cap and fig-alt"
+  },
+  {
+    "objectID": "presentations/sports_slides.html#what-it-shows",
+    "href": "presentations/sports_slides.html#what-it-shows",
+    "title": "Sports Data: your title here",
+    "section": "What it shows",
+    "text": "What it shows\nThe patterns and differences that the figure shows."
+  },
+  {
+    "objectID": "presentations/sports_slides.html#limitations",
+    "href": "presentations/sports_slides.html#limitations",
+    "title": "Sports Data: your title here",
+    "section": "Limitations",
+    "text": "Limitations\nProvenance, small groups, and what the data cannot tell us."
+  },
+  {
+    "objectID": "reports/sports_report.html",
+    "href": "reports/sports_report.html",
+    "title": "Sports Data report: your title here",
+    "section": "",
+    "text": "Which question do you ask about your sport, and why does it matter? Name the groups (your grouping variable) that you compare."
+  },
+  {
+    "objectID": "reports/sports_report.html#question-and-context",
+    "href": "reports/sports_report.html#question-and-context",
+    "title": "Sports Data report: your title here",
+    "section": "",
+    "text": "Which question do you ask about your sport, and why does it matter? Name the groups (your grouping variable) that you compare."
+  },
+  {
+    "objectID": "reports/sports_report.html#data",
+    "href": "reports/sports_report.html#data",
+    "title": "Sports Data report: your title here",
+    "section": "2. Data",
+    "text": "2. Data\nSource and APA citation (from the dataset’s page in the SCORE Sports Data Repository), what one row represents, and the sample size.\n\n\nCode\nlibrary(tidyverse)\n\n# Read the tidy CSV that your script in scripts/ wrote to data/tidy/\nmy_data &lt;- read_csv(\"../data/tidy/your_file.csv\")"
+  },
+  {
+    "objectID": "reports/sports_report.html#tidying-summary",
+    "href": "reports/sports_report.html#tidying-summary",
+    "title": "Sports Data report: your title here",
+    "section": "3. Tidying summary",
+    "text": "3. Tidying summary\nSummarize in a few sentences which problems you fixed and how; link to your script, for example scripts/02_tidy_sports.R."
+  },
+  {
+    "objectID": "reports/sports_report.html#figures",
+    "href": "reports/sports_report.html#figures",
+    "title": "Sports Data report: your title here",
+    "section": "4. Figures",
+    "text": "4. Figures\nThree figures. Under each, explain your design choices (geom, mappings, scales, facets, colors). Give each figure fig-cap and fig-alt."
+  },
+  {
+    "objectID": "reports/sports_report.html#what-the-figures-show",
+    "href": "reports/sports_report.html#what-the-figures-show",
+    "title": "Sports Data report: your title here",
+    "section": "5. What the figures show",
+    "text": "5. What the figures show\nDescribe the patterns and differences that the figures show."
+  },
+  {
+    "objectID": "reports/sports_report.html#limitations",
+    "href": "reports/sports_report.html#limitations",
+    "title": "Sports Data report: your title here",
+    "section": "6. Limitations",
+    "text": "6. Limitations\nProvenance of the data, small groups (fewer than 30 rows), and what the data cannot tell us."
+  },
+  {
+    "objectID": "reports/sports_report.html#references",
+    "href": "reports/sports_report.html#references",
+    "title": "Sports Data report: your title here",
+    "section": "7. References",
+    "text": "7. References\nAPA references: the dataset, the SCORE Sports Data Repository, and any other sources you used."
+  },
+  {
+    "objectID": "reports/sports_report.html#ai-use-statement",
+    "href": "reports/sports_report.html#ai-use-statement",
+    "title": "Sports Data report: your title here",
+    "section": "8. AI-use statement",
+    "text": "8. AI-use statement\nState whether and how you used AI tools, following the course policy."
+  },
+  {
+    "objectID": "example/penguins_slides.html#gentoo-flippers-average-2127-mm-longer-than-the-rest",
+    "href": "example/penguins_slides.html#gentoo-flippers-average-2127-mm-longer-than-the-rest",
+    "title": "Do penguin species differ in flipper length?",
+    "section": "Gentoo flippers average 21–27 mm longer than the rest",
+    "text": "Gentoo flippers average 21–27 mm longer than the rest\n\n\nFigure 1: Flipper length by species. Each point is one penguin; each box shows the middle half of a species, and the line inside it is the median."
+  },
+  {
+    "objectID": "example/penguins_slides.html#what-this-does-and-doesnt-show",
+    "href": "example/penguins_slides.html#what-this-does-and-doesnt-show",
+    "title": "Do penguin species differ in flipper length?",
+    "section": "What this does and doesn’t show",
+    "text": "What this does and doesn’t show\n\nIt shows differences in flipper length between three species.\nThese are 344 penguins measured on 3 islands near Palmer Station, Antarctica, in 2007–2009; 2 have no flipper measurement.\nData source: Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data (R package). https://allisonhorst.github.io/palmerpenguins/ License: CC0."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CIS-3901 Projects",
+    "section": "",
+    "text": "This site holds my reports and slides for the CIS-3901 Challenge Projects (Fairness Data and Sports Data).\nReplace Your Name and this paragraph with your own.\n\nReports: Fairness Data report · Sports Data report\nSlides: Fairness Data slides · Sports Data slides\nExample: penguin report · penguin slides"
+  },
+  {
+    "objectID": "example/penguins_report.html",
+    "href": "example/penguins_report.html",
+    "title": "Do penguin species differ in flipper length?",
+    "section": "",
+    "text": "Code: read the data and compute the numbers\nlibrary(tidyverse)\n\npenguins &lt;- read_csv(\"../data/example/penguins.csv\", show_col_types = FALSE)\n\n# Mean flipper length per species (2 penguins have no measurement)\nflipper_means &lt;- penguins %&gt;%\n  filter(!is.na(flipper_length_mm)) %&gt;%\n  group_by(species) %&gt;%\n  summarise(mean_mm = mean(flipper_length_mm))\n\nmean_of &lt;- function(sp) flipper_means %&gt;% filter(species == sp) %&gt;% pull(mean_mm)\ngentoo_vs_chinstrap_mm &lt;- mean_of(\"Gentoo\") - mean_of(\"Chinstrap\")\ngentoo_vs_adelie_mm &lt;- mean_of(\"Gentoo\") - mean_of(\"Adelie\")\n\nn_penguins &lt;- nrow(penguins)\nn_islands &lt;- n_distinct(penguins$island)\nn_no_flipper &lt;- sum(is.na(penguins$flipper_length_mm))\nfirst_year &lt;- min(penguins$year)\nlast_year &lt;- max(penguins$year)\n\n\n\n\nCode: make the figure\nset.seed(3901)  # same jitter on every render\npenguins %&gt;%\n  filter(!is.na(flipper_length_mm)) %&gt;%\n  ggplot(aes(x = species, y = flipper_length_mm, color = species)) +\n  geom_boxplot(outlier.shape = NA, width = 0.5) +\n  geom_jitter(width = 0.15, alpha = 0.5, size = 1.5) +\n  scale_color_viridis_d(end = 0.7) +\n  labs(\n    title = \"Gentoo penguins have the longest flippers\",\n    x = \"Species\",\n    y = \"Flipper length (mm)\"\n  ) +\n  theme_minimal(base_size = 14) +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\nFigure 1: Flipper length by species. Each point is one penguin; each box shows the middle half of a species, and the line inside it is the median.\n\n\n\n\n\nFinding. Gentoo penguins have the longest flippers, on average about 21 mm longer than Chinstrap and 27 mm longer than Adelie penguins.\nLimitation. These are 344 penguins measured on 3 islands near Palmer Station, Antarctica, in 2007–2009; 2 have no flipper measurement.\nData source. Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data (R package). https://allisonhorst.github.io/palmerpenguins/ License: CC0."
+  },
+  {
+    "objectID": "reports/fairness_report.html",
+    "href": "reports/fairness_report.html",
+    "title": "Fairness Data report: your title here",
+    "section": "",
+    "text": "Which question do you ask, and why does it matter? Name the groups (defined by a sensitive attribute, such as sex, race or age) whose outcomes you compare."
+  },
+  {
+    "objectID": "reports/fairness_report.html#question-and-context",
+    "href": "reports/fairness_report.html#question-and-context",
+    "title": "Fairness Data report: your title here",
+    "section": "",
+    "text": "Which question do you ask, and why does it matter? Name the groups (defined by a sensitive attribute, such as sex, race or age) whose outcomes you compare."
+  },
+  {
+    "objectID": "reports/fairness_report.html#data",
+    "href": "reports/fairness_report.html#data",
+    "title": "Fairness Data report: your title here",
+    "section": "2. Data",
+    "text": "2. Data\nSource and APA citation (from your dataset’s card in data/fairness/), what one row represents, and the sample size.\n\n\nCode\nlibrary(tidyverse)\n\n# Read the tidy CSV that your script in scripts/ wrote to data/tidy/\nmy_data &lt;- read_csv(\"../data/tidy/your_file.csv\")"
+  },
+  {
+    "objectID": "reports/fairness_report.html#tidying-summary",
+    "href": "reports/fairness_report.html#tidying-summary",
+    "title": "Fairness Data report: your title here",
+    "section": "3. Tidying summary",
+    "text": "3. Tidying summary\nSummarize in a few sentences which problems you fixed and how; link to your script, for example scripts/01_tidy_fairness.R."
+  },
+  {
+    "objectID": "reports/fairness_report.html#figures",
+    "href": "reports/fairness_report.html#figures",
+    "title": "Fairness Data report: your title here",
+    "section": "4. Figures",
+    "text": "4. Figures\nThree figures comparing the groups. Under each, explain your design choices (geom, mappings, scales, facets, colors). Give each figure fig-cap and fig-alt."
+  },
+  {
+    "objectID": "reports/fairness_report.html#what-the-figures-show",
+    "href": "reports/fairness_report.html#what-the-figures-show",
+    "title": "Fairness Data report: your title here",
+    "section": "5. What the figures show",
+    "text": "5. What the figures show\nDescribe the differences between groups that the figures show. Describe differences, not causes: these data cannot show that belonging to a group causes an outcome."
+  },
+  {
+    "objectID": "reports/fairness_report.html#limitations",
+    "href": "reports/fairness_report.html#limitations",
+    "title": "Fairness Data report: your title here",
+    "section": "6. Limitations",
+    "text": "6. Limitations\nProvenance of the data, small groups (fewer than 30 rows; see your dataset card), and what the data cannot tell us."
+  },
+  {
+    "objectID": "reports/fairness_report.html#references",
+    "href": "reports/fairness_report.html#references",
+    "title": "Fairness Data report: your title here",
+    "section": "7. References",
+    "text": "7. References\nAPA references: the dataset, Fairlearn, and any other sources you used."
+  },
+  {
+    "objectID": "reports/fairness_report.html#ai-use-statement",
+    "href": "reports/fairness_report.html#ai-use-statement",
+    "title": "Fairness Data report: your title here",
+    "section": "8. AI-use statement",
+    "text": "8. AI-use statement\nState whether and how you used AI tools, following the course policy."
+  },
+  {
+    "objectID": "presentations/fairness_slides.html#question",
+    "href": "presentations/fairness_slides.html#question",
+    "title": "Fairness Data: your title here",
+    "section": "Question",
+    "text": "Question\nYour question, and the groups you compare."
+  },
+  {
+    "objectID": "presentations/fairness_slides.html#main-figure",
+    "href": "presentations/fairness_slides.html#main-figure",
+    "title": "Fairness Data: your title here",
+    "section": "Main figure",
+    "text": "Main figure\n\nlibrary(tidyverse)\n\nmy_data &lt;- read_csv(\"../data/tidy/your_file.csv\")\n# Your ggplot code here; add fig-cap and fig-alt"
+  },
+  {
+    "objectID": "presentations/fairness_slides.html#what-it-shows",
+    "href": "presentations/fairness_slides.html#what-it-shows",
+    "title": "Fairness Data: your title here",
+    "section": "What it shows",
+    "text": "What it shows\nThe differences between groups that the figure shows (differences, not causes)."
+  },
+  {
+    "objectID": "presentations/fairness_slides.html#limitations",
+    "href": "presentations/fairness_slides.html#limitations",
+    "title": "Fairness Data: your title here",
+    "section": "Limitations",
+    "text": "Limitations\nProvenance, small groups, and what the data cannot tell us."
+  }
+]

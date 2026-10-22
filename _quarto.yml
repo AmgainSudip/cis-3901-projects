@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - .nojekyll
+  render:
+    - index.qmd
+    - example/*.qmd
+    - reports/*.qmd
+    - presentations/*.qmd
+
+website:
+  title: "CIS-3901 Projects"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Reports
+        menu:
+          - reports/fairness_report.qmd
+          - reports/sports_report.qmd
+      - text: Slides
+        menu:
+          - presentations/fairness_slides.qmd
+          - presentations/sports_slides.qmd
+      - text: Example
+        menu:
+          - example/penguins_report.qmd
+          - example/penguins_slides.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+
+execute:
+  echo: true
+  warning: false
+  message: false

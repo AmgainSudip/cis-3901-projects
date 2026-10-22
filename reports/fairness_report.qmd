@@ -1,0 +1,45 @@
+---
+title: "Fairness Data report: your title here"
+author: "Your Name"
+---
+
+## 1. Question and context
+
+Which question do you ask, and why does it matter? Name the groups (defined by a sensitive attribute, such as sex, race or age) whose outcomes you compare.
+
+## 2. Data
+
+Source and APA citation (from your dataset's card in `data/fairness/`), what one row represents, and the sample size.
+
+```{r}
+#| label: read-data
+#| eval: false
+library(tidyverse)
+
+# Read the tidy CSV that your script in scripts/ wrote to data/tidy/
+my_data <- read_csv("../data/tidy/your_file.csv")
+```
+
+## 3. Tidying summary
+
+Summarize in a few sentences which problems you fixed and how; link to your script, for example [`scripts/01_tidy_fairness.R`](../scripts/01_tidy_fairness.R).
+
+## 4. Figures
+
+Three figures comparing the groups. Under each, explain your design choices (geom, mappings, scales, facets, colors). Give each figure `fig-cap` and `fig-alt`.
+
+## 5. What the figures show
+
+Describe the differences between groups that the figures show. Describe differences, not causes: these data cannot show that belonging to a group causes an outcome.
+
+## 6. Limitations
+
+Provenance of the data, small groups (fewer than 30 rows; see your dataset card), and what the data cannot tell us.
+
+## 7. References
+
+APA references: the dataset, Fairlearn, and any other sources you used.
+
+## 8. AI-use statement
+
+State whether and how you used AI tools, following the course policy.

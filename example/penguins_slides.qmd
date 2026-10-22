@@ -1,0 +1,58 @@
+---
+title: "Do penguin species differ in flipper length?"
+author: "Dr. Ariel Cintrón-Arias (example)"
+format: revealjs
+execute:
+  echo: false
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+
+penguins <- read_csv("../data/example/penguins.csv", show_col_types = FALSE)
+
+flipper_means <- penguins %>%
+  filter(!is.na(flipper_length_mm)) %>%
+  group_by(species) %>%
+  summarise(mean_mm = mean(flipper_length_mm))
+
+mean_of <- function(sp) flipper_means %>% filter(species == sp) %>% pull(mean_mm)
+gentoo_vs_chinstrap_mm <- mean_of("Gentoo") - mean_of("Chinstrap")
+gentoo_vs_adelie_mm <- mean_of("Gentoo") - mean_of("Adelie")
+
+n_penguins <- nrow(penguins)
+n_islands <- n_distinct(penguins$island)
+n_no_flipper <- sum(is.na(penguins$flipper_length_mm))
+first_year <- min(penguins$year)
+last_year <- max(penguins$year)
+```
+
+## Gentoo flippers average `r round(gentoo_vs_chinstrap_mm)`–`r round(gentoo_vs_adelie_mm)` mm longer than the rest
+
+```{r}
+#| label: fig-flippers
+#| fig-cap: "Flipper length by species. Each point is one penguin; each box shows the middle half of a species, and the line inside it is the median."
+#| fig-alt: "Box plots with one point per penguin, showing flipper length in millimeters for Adelie, Chinstrap and Gentoo penguins. Gentoo flippers are clearly the longest; Chinstrap flippers are slightly longer than Adelie flippers."
+#| fig-width: 10
+#| fig-height: 4.5
+set.seed(3901)  # same jitter on every render
+penguins %>%
+  filter(!is.na(flipper_length_mm)) %>%
+  ggplot(aes(x = species, y = flipper_length_mm, color = species)) +
+  geom_boxplot(outlier.shape = NA, width = 0.5) +
+  geom_jitter(width = 0.15, alpha = 0.5, size = 1.5) +
+  scale_color_viridis_d(end = 0.7) +
+  labs(
+    x = "Species",
+    y = "Flipper length (mm)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none")
+```
+
+## What this does and doesn't show
+
+- It shows differences in flipper length between three species.
+- These are `r n_penguins` penguins measured on `r n_islands` islands near Palmer Station, Antarctica, in `r first_year`–`r last_year`; `r n_no_flipper` have no flipper measurement.
+- **Data source:** Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data* (R package). <https://allisonhorst.github.io/palmerpenguins/> License: CC0.
