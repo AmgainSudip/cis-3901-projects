@@ -1,6 +1,6 @@
 ---
 title: "CIS-3901 Projects"
-author: "Sudip"
+author: "Sudip Amgain"
 ---
 
 This site holds my reports and slides for the CIS-3901 Challenge Projects (Fairness Data and Sports Data).
