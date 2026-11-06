@@ -249,7 +249,7 @@
     "href": "reports/gp12_report.html#ai-use",
     "title": "Guided Project: Statistical Transformations and Coordinate Systems",
     "section": "AI use",
-    "text": "AI use\nI Used ChatGPT to clarify differences between standard deviation and standard error, and to understand how scale_y_continuous() affects bar charts in ggplot2."
+    "text": "AI use\nI Used ChatGPT to clarify differences between standard deviation and standard error, and to understand how scale_x_continuous() affects bar charts in ggplot2."
   },
   {
     "objectID": "reports/gp12_report.html#references",
