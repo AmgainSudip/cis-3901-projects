@@ -262,7 +262,7 @@ knitr::kable(checks_table)
 ```
 
 ## AI use
-I Used ChatGPT to clarify differences between standard deviation and standard error, and to understand how `scale_y_continuous()` affects bar charts in ggplot2.
+I Used ChatGPT to clarify differences between standard deviation and standard error, and to understand how `scale_x_continuous()` affects bar charts in ggplot2.
 
 ## References
 Becker, B., & Kohavi, R. (1996). *Adult* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20. Accessed through Fairlearn (`fetch_adult`).
