@@ -1,6 +1,6 @@
 ---
 title: "Fairness Data report: your title here"
-author: "Your Name"
+author: "Sudip Amgain"
 ---
 
 ## 1. Question and context

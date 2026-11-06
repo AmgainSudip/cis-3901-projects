@@ -1,0 +1,267 @@
+---
+title: "Guided Project: Statistical Transformations and Coordinate Systems"
+subtitle: "CIS-3901 · Module 12"
+author: "Sudip Amgain"
+date: today
+format:
+  html:
+    toc: true
+    code-fold: false
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: project-root
+#| include: false
+# The report runs from reports/; this makes the code run from the project
+# folder, so the script's paths (data/...) work here too.
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r}
+#| label: read-script
+#| include: false
+# All the code lives in the script. Each empty chunk below takes the code
+# with that "## ---- name ----" label there, and shows it with its output.
+knitr::read_chunk("scripts/gp12_stats_coords.R")
+```
+
+```{r}
+#| label: setup
+#| include: false
+```
+
+```{r}
+#| label: helpers
+#| include: false
+```
+
+<!--
+How to use this template
+- Replace every line that starts with "WRITE:" with your own sentences.
+- Replace "Your Name" above (a first name or initials is fine: this page is
+  public).
+- Replace each fig-alt with one sentence describing what YOUR plot shows.
+- Render, then commit and push (Guided Project page, step 5).
+-->
+
+## My data
+My Fairness dataset is the Adult (1994 US Census Income) dataset. It contains 5,000 people in this sample, with each row representing one person. The data comes from the 1994 US Census Current Population Survey and was accessed through Fairlearn.
+
+My Sports dataset is WTA Grand Slam Matches from 2018 to 2022. It contains 2,413 matches, with each row representing one WTA Grand Slam match. The data was compiled by Jeff Sackmann and accessed through the SCORE Sports Data Repository.
+
+```{r}
+#| label: data
+#| echo: true
+```
+
+## Part A · Fairness
+
+**My group:** is sex **My outcome:** is income greater than $50,000 (income == ">50K").
+
+**Question A:** Of each sex (group), what share has more than $50,000?
+**Question B:** Of everyone earning more than $50,000, what share is each female and what share is male?
+
+### A0 · My group and my outcome
+
+```{r}
+#| label: a0
+#| echo: true
+```
+
+```{r}
+#| label: a0-check
+#| include: false
+```
+
+### A1 · The rate within each group (question A)
+
+```{r}
+#| label: fig-a1
+#| ref.label: a1
+#| echo: true
+#| fig-cap: "Share of each group with the outcome."
+#| fig-alt: "Stacked bar chart comparing the proportions of men and women earning above and below $50,000."
+```
+
+```{r}
+#| label: a1-check
+#| include: false
+```
+
+The plot shows that men have a higher rate of earning more than $50,000 (30.4%) compared to women (10.9%). Each bar represents 100% of its respective sex group, allowing me to compare the income proportions even though the groups have different numbers of people.
+
+### A2 · Rates with their standard error
+
+```{r}
+#| label: fig-a2
+#| ref.label: a2
+#| echo: true
+#| fig-cap: "Rate in each group, with ± one standard error and the group size."
+#| fig-alt: "Point-range plot comparing the proportion earning above $50,000 for men and women, with one standard error on either side."
+```
+
+```{r}
+#| label: a2-check
+#| include: false
+```
+
+The male group has a slightly wider standard error range (0.00795) than the female group (0.00764), although the difference is very small. Both groups have relatively large sample sizes, so their estimated rates have fairly small standard errors. The plot keeps both groups visible rather than dropping either one.
+
+### A3 · Zoom or filter?
+
+```{r}
+#| label: fig-a3
+#| ref.label: a3
+#| echo: true
+#| fig-cap: "Counts per group: from 0, zoomed and filtered."
+#| fig-subcap: ["From 0", "Zoomed", "Filtered"]
+#| fig-alt: "Three horizontal bar plots showing the original counts, zoomed counts, and filtered counts of men and women."
+#| layout: [[1, 1, 1]]
+```
+
+```{r}
+#| label: a3-check
+#| include: false
+```
+
+The zoomed plot's Lie Factor (largest vs smallest group) is
+`r round(a3_lie_factor, 1)`.
+
+The original plot shows the full counts of men and women starting from zero. The zoomed plot starts at 800 which makes the difference between the groups appear larger. Its Lie Factor is approximately 1.47, meaning the visual difference is exaggerated by about 1.47 times. The filtered plot removes the bars because their starting point of zero falls outside the selected axis limits. I would publish the original plot because it shows the full counts without exaggerating the difference.
+
+### A4 · Each group's share of everyone with the outcome (question B)
+
+```{r}
+#| label: fig-a4
+#| ref.label: a4
+#| echo: true
+#| fig-cap: "Each group's share of everyone with the outcome."
+#| fig-alt: "Bar chart showing the share of all people earning above $50,000 who are female or male."
+```
+
+```{r}
+#| label: a4-check
+#| include: false
+```
+
+A1 and A2 show that men have a higher income rate (30.4%) than women (10.9%). A4 also points in the same direction because men make up 84.9% of everyone earning above $50,000, compared to 15.1% for women. My original Module 11 question requires Question A because I want to compare the proportion earning above $50,000 within each sex group, rather than the share of all high-income earners.
+
+## Part B · Sports
+
+**My group, outcome and value:** My group is surface, my outcome is matches lasting more than 120 minutes (minutes > 120), and my numeric value is match duration in minutes.
+
+### B0 · My group, outcome and value
+
+```{r}
+#| label: b0
+#| echo: true
+```
+
+```{r}
+#| label: b0-check
+#| include: false
+```
+
+### B1 · The rate within each group
+
+```{r}
+#| label: fig-b1
+#| ref.label: b1
+#| echo: true
+#| fig-cap: "Share of each group with the outcome."
+#| fig-alt: "Stacked bar chart comparing the proportion of matches lasting more than 120 minutes across clay, grass and hard courts."
+```
+
+```{r}
+#| label: b1-check
+#| include: false
+```
+
+The plot shows that hard courts have the highest proportion of matches lasting more than 120 minutes, at approximately 24.3%. Grass follows at 19.1%, while clay has the lowest proportion at 17.0%. Shares are more useful than raw counts here because the three surfaces have different numbers of matches.
+
+### B2 · A mean with its two spreads
+
+```{r}
+#| label: fig-b2
+#| ref.label: b2
+#| echo: true
+#| fig-cap: "Mean in each group, with ± one standard error and group size."
+#| fig-alt: "Point-range plot comparing mean match duration with one standard error for clay, grass and hard courts."
+```
+
+```{r}
+#| label: b2-check
+#| include: false
+```
+
+```{r}
+#| label: tbl-b2
+#| tbl-cap: "Group size, mean, sd and se."
+#| echo: false
+knitr::kable(b2_summary, digits = 3)
+```
+
+Hard-court matches had the highest average duration (97.1 minutes), followed by clay (96.3) and grass (93.9). The difference between hard and grass is larger than their standard errors but much smaller than their standard deviations, meaning individual match durations vary a lot even though the averages are fairly close.
+
+### B3 · Zoom or filter?
+
+```{r}
+#| label: fig-b3
+#| ref.label: b3
+#| echo: true
+#| fig-cap: "Counts per group: zoomed and filtered."
+#| fig-subcap: ["Zoomed", "Filtered"]
+#| fig-alt: "Two horizontal bar plots comparing match counts by court surface, with one zoomed and the other filtered using an axis limit of 250."
+#| layout: [[1, 1]]
+```
+
+```{r}
+#| label: b3-check
+#| include: false
+```
+
+The zoomed plot displays only the portion of the bars above 250, making the differences between the surfaces appear larger. The filtered plot is empty because "scale_x_continuous()" removes the bars when their starting point of zero falls outside the selected limits. The Lie Factor is approximately 1.58, meaning the zoomed graph exaggerates the visual difference by about 1.58 times. I would publish the original plot because it shows the full counts without exaggerating their differences. A narrow time window would also hide matches played outside the selected period compared with the full 2018–2022 dataset.
+
+### B4 · Each group's share of everyone with the outcome
+
+```{r}
+#| label: fig-b4
+#| ref.label: b4
+#| echo: true
+#| fig-cap: "Each group's share of everyone with the outcome."
+#| fig-alt: "Bar chart showing each court surface's share of all WTA matches lasting more than 120 minutes."
+```
+
+```{r}
+#| label: b4-check
+#| include: false
+```
+
+B1 and B4 both show that hard courts have the highest representation of matches lasting over 120 minutes. However, B1 compares the rate within each surface, while B4 compares each surface's share of all matches lasting over 120 minutes. Clay has a slightly larger share than grass in B4, even though grass has a higher within-surface rate in B1, because clay has more matches overall.
+
+## Checks
+
+```{r}
+#| label: checks-table
+#| include: false
+```
+
+```{r}
+#| label: tbl-checks
+#| tbl-cap: "Every task's check, at the time this page was rendered."
+#| echo: false
+knitr::kable(checks_table)
+```
+
+## AI use
+I used chatGPT to understand the difference between SE (standard error) and SD (standard deviation).
+
+## References
+Becker, B., & Kohavi, R. (1996). *Adult* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20. Accessed through Fairlearn (`fetch_adult`).
+
+Yurko, R. (2023, May 24). *WTA Grand Slam Matches*. SCORE Sports Data Repository. https://data.scorenetwork.org/tennis/wta-grand-slam-matches.html
