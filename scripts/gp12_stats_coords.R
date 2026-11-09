@@ -93,9 +93,8 @@ if (looks_damaged(fairness) || looks_damaged(sports)) {
 glimpse(fairness)
 glimpse(sports)
 
-
+## ---- a0-instructions ----
 # PART A · FAIRNESS ==========================================================
-
 # A0 · Your group and your outcome ------------------------------------------
 # Session 1, slide 17: "My outcome is ___. My group is ___."
 # YOUR TURN: replace "replace me" with your group column (no quotes), and
