@@ -1,0 +1,383 @@
+---
+title: "Guided Project: Scales and Facets"
+subtitle: "CIS-3901 · Module 13"
+author: "Your Name"
+date: today
+format:
+  html:
+    toc: true
+    code-fold: false
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+::: {.callout-important}
+## Edit the code in the script. The report and the slides only read it.
+
+The code lives in `scripts/gp13_scales_facets.R`. Your words (findings,
+headlines, limits) live in the report and the slides. Keep the code chunks
+here empty: on render, each one runs the script's code, so code typed into
+them is ignored. Fix the code in the script.
+:::
+
+```{r}
+#| label: project-root
+#| include: false
+# The report runs from reports/; this makes the code run from the project
+# folder, so the script's paths (data/...) work here too.
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r}
+#| label: read-script
+#| include: false
+# All the code lives in the script. Each empty chunk below takes the code
+# with that "## ---- name ----" label there, and shows it with its output.
+knitr::read_chunk("scripts/gp13_scales_facets.R")
+```
+
+```{r}
+#| label: setup
+#| include: false
+```
+
+```{r}
+#| label: helpers
+#| include: false
+```
+
+<!--
+How to use this template
+- Replace every line that starts with "WRITE:" with your own sentences.
+- Replace "Your Name" above (a first name or initials is fine: this page is
+  public).
+- Replace each fig-alt with one sentence describing what YOUR plot shows.
+- Change code only in the script, never here: code typed into a chunk here
+  is ignored on render (the chunk runs the script's code).
+- Render, then commit and push (Guided Project page).
+- Draft: tasks 0-5 with your WRITE answers. Final: revise with Module 14's
+  ideas and fill in the Revision log near the end.
+-->
+
+## My data
+
+WRITE: Name your Fairness dataset and your Sports dataset. For each: what one
+row is, how many rows, and where the data come from (cite them in
+References).
+
+```{r}
+#| label: data
+#| echo: true
+```
+
+## Part A · Fairness
+
+### A0 · See it update
+
+```{r}
+#| label: fig-a0
+#| ref.label: a0
+#| echo: true
+#| fig-cap: "My first plot: a count of one of my Fairness columns."
+#| fig-alt: "Bar chart counting the rows in each group of one column."
+```
+
+```{r}
+#| label: a0-check
+#| include: false
+```
+
+WRITE (1 sentence): Did your title change show up here and in your slides?
+
+### A1 · Label it
+
+```{r}
+#| label: fig-a1
+#| ref.label: a1
+#| echo: true
+#| fig-cap: "Share of each group with the outcome, labeled for a reader."
+#| fig-alt: "WRITE: one sentence describing what this plot shows."
+```
+
+```{r}
+#| label: a1-check
+#| include: false
+```
+
+WRITE (2 sentences): Which label did you change most, and why? Could a reader
+understand this plot without you there?
+
+### A2 · Choose a scale
+
+```{r}
+#| label: fig-a2
+#| ref.label: a2
+#| echo: true
+#| fig-cap: "My scale choice."
+#| fig-alt: "WRITE: one sentence describing what this plot shows."
+```
+
+```{r}
+#| label: a2-check
+#| include: false
+```
+
+WRITE (2–3 sentences): Which scale, and why? What does a reader see with it
+that they wouldn't see without it? If values were removed (0 or below on a
+log scale), say how many.
+
+### A3 · Facet it: fixed or free
+
+```{r}
+#| label: fig-a3
+#| ref.label: a3
+#| echo: true
+#| fig-cap: "The same rates in panels: fixed and free y-axes."
+#| fig-subcap: ["Fixed", "Free"]
+#| fig-alt: "WRITE: one sentence describing the two plots."
+#| layout: [[1, 1]]
+```
+
+```{r}
+#| label: a3-chosen
+#| include: false
+```
+
+```{r}
+#| label: tbl-a3
+#| tbl-cap: "Each group's n and rate, by panel."
+#| echo: false
+knitr::kable(a3_rates, digits = 3)
+```
+
+```{r}
+#| label: a3-check
+#| include: false
+```
+
+WRITE (3–4 sentences): Fixed or free? What does the reader gain, and what do
+they lose? Which panels or groups are small, and what is their n? Describe
+differences, not causes.
+
+### A4 · Compared to what?
+
+```{r}
+#| label: fig-a4
+#| ref.label: a4
+#| echo: true
+#| fig-cap: "Two groups: individual values and resampled means, same axes."
+#| fig-alt: "WRITE: one sentence describing what this plot shows."
+```
+
+```{r}
+#| label: a4-check
+#| include: false
+```
+
+WRITE (2–3 sentences): Do the clouds overlap? What does that say about
+individuals versus the group means?
+
+### A5 · Color for every reader
+
+```{r}
+#| label: fig-a5
+#| ref.label: [a5, a5-simulated]
+#| echo: true
+#| fig-cap: "My colors, with a second cue, and how a reader with red-green color blindness might see them."
+#| fig-subcap: ["My plot", "Red-green (deuteranopia), simulated"]
+#| fig-alt:
+#|   - "WRITE: one sentence describing what this plot shows."
+#|   - "The same plot in the colors a reader with red-green color blindness (deuteranopia) might see."
+#| layout-ncol: 2
+```
+
+```{r}
+#| label: a5-colors
+#| echo: true
+```
+
+```{r}
+#| label: fig-a5-views
+#| ref.label: a5-other-views
+#| echo: true
+#| fig-cap: "The other two simulated views."
+#| fig-subcap: ["Red-green (protanopia), simulated", "Blue-yellow (approximate), simulated"]
+#| fig-alt:
+#|   - "The same plot in the colors a reader with red-green color blindness (protanopia) might see."
+#|   - "The same plot in the colors a reader with blue-yellow color blindness might see (an approximation)."
+#| layout-ncol: 2
+```
+
+```{r}
+#| label: a5-check
+#| include: false
+```
+
+WRITE (2–4 sentences): Explain your colors. Say which column you colored by
+and why. If your first choice failed the color check, say what you changed:
+fewer categories, grouping rare ones, or panels. Then look at your simulated
+plot: can you still tell the categories apart?
+
+## Part B · Sports
+
+### B1 · Label it
+
+```{r}
+#| label: fig-b1
+#| ref.label: b1
+#| echo: true
+#| fig-cap: "My Sports plot, labeled for a reader."
+#| fig-alt: "WRITE: one sentence describing what this plot shows."
+```
+
+```{r}
+#| label: b1-check
+#| include: false
+```
+
+WRITE (2 sentences): What does the plot show? Which label helps a reader most?
+
+### B2 · Choose a scale
+
+```{r}
+#| label: fig-b2
+#| ref.label: b2
+#| echo: true
+#| fig-cap: "My scale choice."
+#| fig-alt: "WRITE: one sentence describing what this plot shows."
+```
+
+```{r}
+#| label: b2-check
+#| include: false
+```
+
+WRITE (2–3 sentences): Which scale, and why? If values were removed, say how
+many.
+
+### B3 · Facet it: fixed or free
+
+```{r}
+#| label: fig-b3
+#| ref.label: b3
+#| echo: true
+#| fig-cap: "The same plot in panels: fixed and free y-axes."
+#| fig-subcap: ["Fixed", "Free"]
+#| fig-alt: "WRITE: one sentence describing the two plots."
+#| layout: [[1, 1]]
+```
+
+```{r}
+#| label: b3-check
+#| include: false
+```
+
+WRITE (3–4 sentences): Fixed or free? What does the reader gain, and what do
+they lose? Which panels are small, and what is their n? Differences, not
+causes.
+
+### B4 · Compared to what?
+
+```{r}
+#| label: fig-b4
+#| ref.label: b4
+#| echo: true
+#| fig-cap: "Two groups: individual values and resampled means, same axes."
+#| fig-alt: "WRITE: one sentence describing what this plot shows."
+```
+
+```{r}
+#| label: b4-check
+#| include: false
+```
+
+WRITE (2–3 sentences): Do the clouds overlap? What does that say about
+individuals versus the group means?
+
+### B5 · Color for every reader
+
+```{r}
+#| label: fig-b5
+#| ref.label: [b5, b5-simulated]
+#| echo: true
+#| fig-cap: "My colors, with a second cue, and how a reader with red-green color blindness might see them."
+#| fig-subcap: ["My plot", "Red-green (deuteranopia), simulated"]
+#| fig-alt:
+#|   - "WRITE: one sentence describing what this plot shows."
+#|   - "The same plot in the colors a reader with red-green color blindness (deuteranopia) might see."
+#| layout-ncol: 2
+```
+
+```{r}
+#| label: b5-colors
+#| echo: true
+```
+
+```{r}
+#| label: fig-b5-views
+#| ref.label: b5-other-views
+#| echo: true
+#| fig-cap: "The other two simulated views."
+#| fig-subcap: ["Red-green (protanopia), simulated", "Blue-yellow (approximate), simulated"]
+#| fig-alt:
+#|   - "The same plot in the colors a reader with red-green color blindness (protanopia) might see."
+#|   - "The same plot in the colors a reader with blue-yellow color blindness might see (an approximation)."
+#| layout-ncol: 2
+```
+
+```{r}
+#| label: b5-check
+#| include: false
+```
+
+WRITE (2–4 sentences): Explain your colors. Say which column you colored by
+and why. If your first choice failed the color check, say what you changed:
+fewer categories, grouping rare ones, or panels. Then look at your simulated
+plot: can you still tell the categories apart?
+
+## One thing I tried in my slides, and why
+
+WRITE (2–3 sentences): One idea of your own in your slides (an angle, a
+comparison, an order, an annotation), and how it helps a reader see the
+finding.
+
+## Revision log
+
+<!-- Leave this empty for the draft; the page renders with it empty. -->
+
+Fill this in for the final: three to five changes to your report or slides.
+For each: what changed, why, and which idea from Module 14 it uses.
+
+| Change | Why | Module 14 idea |
+|---|---|---|
+| | | |
+| | | |
+| | | |
+
+## Checks
+
+```{r}
+#| label: checks-table
+#| include: false
+```
+
+```{r}
+#| label: tbl-checks
+#| tbl-cap: "Every task's check, at the time this page was rendered."
+#| echo: false
+knitr::kable(checks_table)
+```
+
+## AI use
+
+WRITE: one public line only: "AI use: I used [tool] to [what for]." or
+"AI use: none." (Your AI log and conversations go in Blackboard, never here:
+Guided Project page.)
+
+## References
+
+WRITE: APA references for your Fairness dataset (Fairlearn and the original
+source) and your Sports dataset (its SCORE page).

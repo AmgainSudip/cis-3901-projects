@@ -257,5 +257,117 @@
     "title": "Guided Project: Statistical Transformations and Coordinate Systems",
     "section": "References",
     "text": "References\nBecker, B., & Kohavi, R. (1996). Adult [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20. Accessed through Fairlearn (fetch_adult).\nYurko, R. (2023, May 24). WTA Grand Slam Matches. SCORE Sports Data Repository. https://data.scorenetwork.org/tennis/wta-grand-slam-matches.html"
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#task-0-see-it-update",
+    "href": "presentations/gp13_slides.html#task-0-see-it-update",
+    "title": "Comparing Income Patterns and Tennis Match Duration",
+    "section": "",
+    "text": "Figure 1"
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#question",
+    "href": "presentations/gp13_slides.html#question",
+    "title": "Comparing Income Patterns and Tennis Match Duration",
+    "section": "Question",
+    "text": "Question\n\nWRITE: your question, naming the groups you compare."
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#data",
+    "href": "presentations/gp13_slides.html#data",
+    "title": "Comparing Income Patterns and Tennis Match Duration",
+    "section": "Data",
+    "text": "Data\n\nWRITE: where the data are from and what one row is. My Fairness file has 5,000 rows; my Sports file has 2,413 rows."
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#write-your-headline",
+    "href": "presentations/gp13_slides.html#write-your-headline",
+    "title": "Comparing Income Patterns and Tennis Match Duration",
+    "section": "WRITE: your headline",
+    "text": "WRITE: your headline\n\n\n\nNot done yet."
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#what-it-shows-and-its-limits",
+    "href": "presentations/gp13_slides.html#what-it-shows-and-its-limits",
+    "title": "Comparing Income Patterns and Tennis Match Duration",
+    "section": "What it shows, and its limits",
+    "text": "What it shows, and its limits\n\n\nWRITE: the difference the figure shows (differences, not causes).\nWRITE: where the data come from, which groups are small (their n), and what the data can’t tell us."
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#sources-and-ai-use",
+    "href": "presentations/gp13_slides.html#sources-and-ai-use",
+    "title": "Comparing Income Patterns and Tennis Match Duration",
+    "section": "Sources and AI use",
+    "text": "Sources and AI use\n\n\nWRITE: data citation (APA), for each dataset you show.\nWRITE: “AI use: I used [tool] to [what for].” or “AI use: none.”"
+  },
+  {
+    "objectID": "reports/gp13_report.html",
+    "href": "reports/gp13_report.html",
+    "title": "Guided Project: Scales and Facets",
+    "section": "",
+    "text": "ImportantEdit the code in the script. The report and the slides only read it.\n\n\n\nThe code lives in scripts/gp13_scales_facets.R. Your words (findings, headlines, limits) live in the report and the slides. Keep the code chunks here empty: on render, each one runs the script’s code, so code typed into them is ignored. Fix the code in the script."
+  },
+  {
+    "objectID": "reports/gp13_report.html#my-data",
+    "href": "reports/gp13_report.html#my-data",
+    "title": "Guided Project: Scales and Facets",
+    "section": "My data",
+    "text": "My data\nWRITE: Name your Fairness dataset and your Sports dataset. For each: what one row is, how many rows, and where the data come from (cite them in References).\n\nput_in_place(\"fairness.csv\")\nput_in_place(\"sports.csv\")\n\nfairness &lt;- read_csv(\"data/fairness.csv\", show_col_types = FALSE)\nsports &lt;- read_csv(\"data/sports.csv\", show_col_types = FALSE)\n\nif (looks_damaged(fairness) || looks_damaged(sports)) {\n  stop(\"One of your data files looks damaged (each row in one column): it \",\n       \"may have been re-saved by a spreadsheet app. Ask your instructor \",\n       \"for a fresh copy.\", call. = FALSE)\n}\n\n# Your columns (\"values\" = how many different values: 2 to 4 suits\n# task 5). Never put a column of people's names in a plot.\nshow_columns(fairness)\n\n# A tibble: 15 × 4\n   column         type      values missing\n   &lt;chr&gt;          &lt;chr&gt;      &lt;int&gt;   &lt;int&gt;\n 1 person_id      numeric     5000       0\n 2 age            numeric       70       0\n 3 workclass      character      8     290\n 4 education      character     16       0\n 5 education_num  numeric       16       0\n 6 marital_status character      7       0\n 7 occupation     character     15     290\n 8 relationship   character      6       0\n 9 race           character      5       0\n10 sex            character      2       0\n11 capital_gain   numeric       80       0\n12 capital_loss   numeric       62       0\n13 hours_per_week numeric       77       0\n14 native_country character     41      93\n15 income         character      2       0\n\nshow_columns(sports)\n\n# A tibble: 38 × 4\n   column       type      values missing\n   &lt;chr&gt;        &lt;chr&gt;      &lt;int&gt;   &lt;int&gt;\n 1 tourney_name character      4       0\n 2 surface      character      3       0\n 3 tourney_date numeric       19       0\n 4 winner_seed  character     36    1139\n 5 winner_name  character    234       0\n 6 winner_hand  character      3       0\n 7 winner_ht    numeric       33      79\n 8 winner_ioc   character     45       0\n 9 winner_age   numeric      211       0\n10 loser_seed   character     37    1755\n11 loser_name   character    317       0\n12 loser_hand   character      3       0\n13 loser_ht     numeric       34     190\n14 loser_ioc    character     49       0\n15 loser_age    numeric      231       0\n16 score        character    625       0\n17 round        character      7       0\n18 minutes      numeric      162     133\n19 w_ace        numeric       24      11\n20 w_df         numeric       19      13\n21 w_svpt       numeric      120      11\n22 w_1stIn      numeric       89      11\n23 w_1stWon     numeric       61      11\n24 w_2ndWon     numeric       36      11\n25 w_SvGms      numeric       26      10\n26 w_bpSaved    numeric       21      11\n27 w_bpFaced    numeric       26      11\n28 l_ace        numeric       20      11\n29 l_df         numeric       19      13\n30 l_svpt       numeric      122      11\n31 l_1stIn      numeric       91      11\n32 l_1stWon     numeric       64      11\n33 l_2ndWon     numeric       35      11\n34 l_SvGms      numeric       26      10\n35 l_bpSaved    numeric       23      11\n36 l_bpFaced    numeric       29      11\n37 winner_rank  numeric      210       5\n38 loser_rank   numeric      318       5\n\n# PART A · FAIRNESS ==========================================================\n\n# A0 · See it update ---------------------------------------------------------\n# A ready count plot of one of your Fairness columns. Nothing to code.\n# YOUR TURN (kickoff): change one word in the title, then render the report\n# and the slides, and find your word on both pages."
+  },
+  {
+    "objectID": "reports/gp13_report.html#part-a-fairness",
+    "href": "reports/gp13_report.html#part-a-fairness",
+    "title": "Guided Project: Scales and Facets",
+    "section": "Part A · Fairness",
+    "text": "Part A · Fairness\n\nA0 · See it update\n\na0_column &lt;- pick_a_column(fairness)\n\na0 &lt;- ggplot(fairness, aes(y = .data[[a0_column]])) +\n  geom_bar() +\n  labs(title = \"My Fairness plot\", x = \"Count\", y = a0_column)\n\nshow_plot(a0)\n\n\n\n\n\n\n\nFigure 1: My first plot: a count of one of my Fairness columns.\n\n\n\n\n\nWRITE (1 sentence): Did your title change show up here and in your slides?\n\n\nA1 · Label it\n\na_data &lt;- fairness %&gt;%\n  mutate(\n    group = \"replace me\",\n    has_outcome = FALSE\n  )\n\na1_base &lt;- NULL\n\na1 &lt;- a1_base +\n  labs(\n    title = \"___\",\n    subtitle = \"___\",\n    x = \"___\",\n    y = \"___\",\n    fill = \"___\"\n  ) +\n  scale_x_continuous(labels = scales::percent)\n\nshow_plot(a1)\n\nNot done yet.\n\n\nWRITE (2 sentences): Which label did you change most, and why? Could a reader understand this plot without you there?\n\n\nA2 · Choose a scale\n\na2 &lt;- NULL\n# YOUR TURN: remove the # signs below, then replace each ___.\n# a2 &lt;- fairness %&gt;%\n#   filter(___ &gt; 0) %&gt;%\n#   ggplot(aes(x = ___)) +\n#   geom_histogram(bins = 30) +\n#   scale_x_log10(labels = scales::comma) +\n#   labs(title = \"___\", x = \"___ (units, log scale)\", y = \"Count\")\n\n# YOUR TURN: one sentence. Why this scale for this column?\na2_reason &lt;- \"___\"\n\nshow_plot(a2)\n\nNot done yet.\n\n\nWRITE (2–3 sentences): Which scale, and why? What does a reader see with it that they wouldn’t see without it? If values were removed (0 or below on a log scale), say how many.\n\n\nA3 · Facet it: fixed or free\n# YOUR TURN 1: replace \"replace me\" with your second column (no quotes).\na3_rates &lt;- a_data %&gt;%\n  mutate(panel = \"replace me\") %&gt;%\n  drop_na(has_outcome) %&gt;%\n  add_count(panel, name = \"panel_n\") %&gt;%\n  mutate(panel = paste0(panel, \" (n = \", scales::comma(panel_n), \")\")) %&gt;%\n  group_by(panel, group) %&gt;%\n  summarize(n = n(), rate = mean(has_outcome), .groups = \"drop\")\n\na3_fixed &lt;- NULL\na3_free &lt;- NULL\n# YOUR TURN 2: remove the # signs below, then replace each ___.\n# a3_fixed &lt;- ggplot(a3_rates, aes(x = group, y = rate)) +\n#   geom_col() +\n#   facet_wrap(vars(panel)) +\n#   scale_y_continuous(labels = scales::percent) +\n#   labs(title = \"___\", x = \"___\", y = \"___ (%)\")\n# a3_free &lt;- a3_fixed +\n#   facet_wrap(vars(panel), scales = \"free_y\")\n\n# YOUR TURN 3: which one would you publish, \"fixed\" or \"free_y\"? Why?\na3_choice &lt;- \"___\"\na3_reason &lt;- \"___\"\n\nshow_plot(a3_fixed)\nshow_plot(a3_free)\n\n\n\n\n\nNot done yet.\n\n\nNot done yet.\n\n\n\n\nFigure 2: The same rates in panels: fixed and free y-axes.\n\n\n\n\n\n\n\nTable 1: Each group’s n and rate, by panel.\n\n\n\n\n\n\npanel\ngroup\nn\nrate\n\n\n\n\nreplace me (n = 5,000)\nreplace me\n5000\n0\n\n\n\n\n\n\n\n\nWRITE (3–4 sentences): Fixed or free? What does the reader gain, and what do they lose? Which panels or groups are small, and what is their n? Describe differences, not causes.\n\n\nA4 · Compared to what?\n\na4_clouds &lt;- NULL\n# YOUR TURN 1: remove the # signs below, then replace each ___: the column\n# with your groups, two of its values, and your numeric column.\n# a4_clouds &lt;- a_data %&gt;%\n#   filter(___ %in% c(\"___\", \"___\")) %&gt;%\n#   make_clouds(___, ___)\n\na4 &lt;- NULL\n# YOUR TURN 2: remove the # signs below, then replace each ___.\n# a4 &lt;- ggplot(a4_clouds, aes(x = group, y = value)) +\n#   geom_jitter(width = 0.15, height = 0, alpha = 0.2) +\n#   facet_wrap(~ kind) +\n#   labs(title = \"___\", x = \"___\", y = \"___ (units)\")\n\nshow_plot(a4)\n\nNot done yet.\n\n\nWRITE (2–3 sentences): Do the clouds overlap? What does that say about individuals versus the group means?\n\n\nA5 · Color for every reader\na5 &lt;- NULL\n# YOUR TURN: remove the # signs below, then replace each ___ (the same\n# column in both places, so its name is on the axis too).\n# a5 &lt;- ggplot(a_data, aes(y = ___, fill = ___)) +\n#   geom_bar() +\n#   scale_fill_viridis_d(end = 0.8) +\n#   labs(title = \"___\", x = \"Count\", y = \"___\", fill = \"___\")\n\nshow_plot(a5)\n# See it: your plot as a reader with red-green color blindness might see it.\nshow_plot(simulate_plot(a5, \"Red-green (deuteranopia)\"))\n\n\n\n\n\nNot done yet.\n\n\nNot done yet.\n\n\n\n\nFigure 3: My colors, with a second cue, and how a reader with red-green color blindness might see them.\n\n\n\n\ncolor_check(a5)\n\nNot done yet: map a column with a few categories to color or fill,\nwith a different color for each.\n\n\nshow_plot(simulate_plot(a5, \"Red-green (protanopia)\"))\nshow_plot(simulate_plot(a5, \"Blue-yellow (approximate)\"))\n\n\n\n\n\nNot done yet.\n\n\nNot done yet.\n\n\n\n\nFigure 4: The other two simulated views.\n\n\n\nWRITE (2–4 sentences): Explain your colors. Say which column you colored by and why. If your first choice failed the color check, say what you changed: fewer categories, grouping rare ones, or panels. Then look at your simulated plot: can you still tell the categories apart?"
+  },
+  {
+    "objectID": "reports/gp13_report.html#part-b-sports",
+    "href": "reports/gp13_report.html#part-b-sports",
+    "title": "Guided Project: Scales and Facets",
+    "section": "Part B · Sports",
+    "text": "Part B · Sports\n\nB1 · Label it\n\nb_data &lt;- sports %&gt;%\n  mutate(\n    group = \"replace me\",\n    has_outcome = FALSE,\n    value = NA_real_\n  )\n\nb1_base &lt;- NULL\n\nb1 &lt;- b1_base +\n  labs(\n    title = \"___\",\n    subtitle = \"___\",\n    x = \"___\",\n    y = \"___\"\n  )\n\nshow_plot(b1)\n\nNot done yet.\n\n\nWRITE (2 sentences): What does the plot show? Which label helps a reader most?\n\n\nB2 · Choose a scale\n\nb2 &lt;- NULL\n\nb2_reason &lt;- \"___\"\n\nshow_plot(b2)\n\nNot done yet.\n\n\nWRITE (2–3 sentences): Which scale, and why? If values were removed, say how many.\n\n\nB3 · Facet it: fixed or free\nb3_fixed &lt;- NULL\nb3_free &lt;- NULL\n\nb3_choice &lt;- \"___\"\nb3_reason &lt;- \"___\"\n\nshow_plot(b3_fixed)\nshow_plot(b3_free)\n\n\n\n\n\nNot done yet.\n\n\nNot done yet.\n\n\n\n\nFigure 5: The same plot in panels: fixed and free y-axes.\n\n\n\nWRITE (3–4 sentences): Fixed or free? What does the reader gain, and what do they lose? Which panels are small, and what is their n? Differences, not causes.\n\n\nB4 · Compared to what?\n\nb4_clouds &lt;- NULL\nb4 &lt;- NULL\n\nshow_plot(b4)\n\nNot done yet.\n\n\nWRITE (2–3 sentences): Do the clouds overlap? What does that say about individuals versus the group means?\n\n\nB5 · Color for every reader\nb5 &lt;- NULL\n\nshow_plot(b5)\nshow_plot(simulate_plot(b5, \"Red-green (deuteranopia)\"))\n\n\n\n\n\nNot done yet.\n\n\nNot done yet.\n\n\n\n\nFigure 6: My colors, with a second cue, and how a reader with red-green color blindness might see them.\n\n\n\n\ncolor_check(b5)\n\nNot done yet: map a column with a few categories to color or fill,\nwith a different color for each.\n\n\nshow_plot(simulate_plot(b5, \"Red-green (protanopia)\"))\nshow_plot(simulate_plot(b5, \"Blue-yellow (approximate)\"))\n\n\n\n\n\nNot done yet.\n\n\nNot done yet.\n\n\n\n\nFigure 7: The other two simulated views.\n\n\n\nWRITE (2–4 sentences): Explain your colors. Say which column you colored by and why. If your first choice failed the color check, say what you changed: fewer categories, grouping rare ones, or panels. Then look at your simulated plot: can you still tell the categories apart?"
+  },
+  {
+    "objectID": "reports/gp13_report.html#one-thing-i-tried-in-my-slides-and-why",
+    "href": "reports/gp13_report.html#one-thing-i-tried-in-my-slides-and-why",
+    "title": "Guided Project: Scales and Facets",
+    "section": "One thing I tried in my slides, and why",
+    "text": "One thing I tried in my slides, and why\nWRITE (2–3 sentences): One idea of your own in your slides (an angle, a comparison, an order, an annotation), and how it helps a reader see the finding."
+  },
+  {
+    "objectID": "reports/gp13_report.html#revision-log",
+    "href": "reports/gp13_report.html#revision-log",
+    "title": "Guided Project: Scales and Facets",
+    "section": "Revision log",
+    "text": "Revision log\n\nFill this in for the final: three to five changes to your report or slides. For each: what changed, why, and which idea from Module 14 it uses.\n\n\n\nChange\nWhy\nModule 14 idea"
+  },
+  {
+    "objectID": "reports/gp13_report.html#checks",
+    "href": "reports/gp13_report.html#checks",
+    "title": "Guided Project: Scales and Facets",
+    "section": "Checks",
+    "text": "Checks\n\n\n\n\nTable 2: Every task’s check, at the time this page was rendered.\n\n\n\n\n\n\ntask\nstatus\n\n\n\n\nA0\nsee the reminder\n\n\nA1\nTO DO\n\n\nA2\nTO DO\n\n\nA3\nTO DO\n\n\nA4\nTO DO\n\n\nA5\nTO DO\n\n\nB1\nTO DO\n\n\nB2\nTO DO\n\n\nB3\nTO DO\n\n\nB4\nTO DO\n\n\nB5\nTO DO"
+  },
+  {
+    "objectID": "reports/gp13_report.html#ai-use",
+    "href": "reports/gp13_report.html#ai-use",
+    "title": "Guided Project: Scales and Facets",
+    "section": "AI use",
+    "text": "AI use\nWRITE: one public line only: “AI use: I used [tool] to [what for].” or “AI use: none.” (Your AI log and conversations go in Blackboard, never here: Guided Project page.)"
+  },
+  {
+    "objectID": "reports/gp13_report.html#references",
+    "href": "reports/gp13_report.html#references",
+    "title": "Guided Project: Scales and Facets",
+    "section": "References",
+    "text": "References\nWRITE: APA references for your Fairness dataset (Fairlearn and the original source) and your Sports dataset (its SCORE page)."
+  },
+  {
+    "objectID": "presentations/gp13_slides.html",
+    "href": "presentations/gp13_slides.html",
+    "title": "Comparing Income Patterns and Tennis Match Duration",
+    "section": "",
+    "text": "Figure 1"
   }
 ]
