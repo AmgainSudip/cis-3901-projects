@@ -479,7 +479,7 @@ a0_column <- pick_a_column(fairness)
 
 a0 <- ggplot(fairness, aes(y = .data[[a0_column]])) +
   geom_bar() +
-  labs(title = "My first plot", x = "Count", y = a0_column)
+  labs(title = "My Fairness plot", x = "Count", y = a0_column)
 
 show_plot(a0)
 

@@ -1,7 +1,7 @@
 ---
 title: "Guided Project: Scales and Facets"
 subtitle: "CIS-3901 · Module 13"
-author: "Your Name"
+author: "Sudip Amgain"
 date: today
 format:
   html:
