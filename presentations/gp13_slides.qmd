@@ -1,6 +1,5 @@
 ---
-# WRITE: What is this about, and who made it? (a title that names your topic)
-title: "Comparing Income Patterns and Tennis Match Duration"
+title: "Income Patterns and Match Statistics: Adult and WTA Tennis Data"
 author: "Sudip Amgain"
 format:
   revealjs:
@@ -11,23 +10,11 @@ execute:
   message: false
 ---
 
-<!--
-Edit the code in the script. The report and the slides only read it.
-Your words (findings, headlines, limits) live in the report and the slides.
+## Question
 
-How these slides work
-- The code lives in scripts/gp13_scales_facets.R. No code is pasted here:
-  code typed into a chunk here is ignored on render (the chunk runs the
-  script's code). Fix plots in the script.
-- A plot appears by naming its chunk: copy a figure chunk below and change
-  ref.label to the chunk's name in the script (a1, a2, a3-chosen, a4, a5,
-  b1, b2, b3, b4, b5).
-- At least 4–5 slides; more are welcome. Copy a "##" block to add one.
-- Replace each WRITE: line with your own words, and each fig-alt with one
-  sentence describing YOUR plot.
-- No speaker notes: anything in "::: notes" is public on the web. Keep it
-  out.
--->
+<!-- One sentence, naming the groups you compare. -->
+
+How does the percentage of adults earning above $50,000 differ between female and male adults across race groups?
 
 ```{r}
 #| label: project-root
@@ -60,36 +47,20 @@ knitr::read_chunk("scripts/gp13_scales_facets.R")
 #|   - b1
 #|   - b2
 #|   - b3
+#|   - b3-chosen
 #|   - b4
 #|   - b5
 ```
-
-## Task 0: see it update
-
-<!-- Task 0 (kickoff): find your new title word here. You can remove this
-slide after the kickoff. -->
-
-```{r}
-#| label: fig-a0
-#| ref.label: a0
-#| fig-alt: "Bar chart counting the rows in each group of one column."
-```
-
-## Question
-
-<!-- One sentence, naming the groups you compare. -->
-
-WRITE: your question, naming the groups you compare.
 
 ## Data
 
 <!-- Where it's from, what one row is, how many rows. -->
 
-WRITE: where the data are from and what one row is. My Fairness file has
-`r scales::comma(nrow(fairness))` rows; my Sports file has
-`r scales::comma(nrow(sports))` rows.
+The Fairness data is based on 1994 U.S. Census records. Each row represents one adult. My Fairness file has
+`r scales::comma(nrow(fairness))` rows.
 
-## WRITE: your headline
+
+## Male adults had a higher percentage earning above $50,000 in every race group
 
 <!-- State the finding in one sentence as this slide's heading, then the
 figure. By default it shows your A3 plot, the version you chose. -->
@@ -97,21 +68,51 @@ figure. By default it shows your A3 plot, the version you chose. -->
 ```{r}
 #| label: fig-headline
 #| ref.label: a3-chosen
-#| fig-alt: "WRITE: one sentence describing what this plot shows."
+#| fig-alt: "Five panels, one per race group, comparing the percentage of female and male adults earning above $50,000."
 ```
 
 ## What it shows, and its limits
 
 <!-- Differences, not causes; provenance, small groups, what the data can't
 tell us. -->
+- Male adults had a higher percentage earning above $50,000 in every race group.
+- The smallest groups were Other (n = 42) and Amer-Indian-Eskimo (n = 47), so their percentages should be interpreted carefully.
+- These plots show differences between groups, not the reasons behind those differences.
 
-- WRITE: the difference the figure shows (differences, not causes).
-- WRITE: where the data come from, which groups are small (their n), and
-  what the data can't tell us.
+
+## Question: WTA Sports dataset
+
+How does the percentage of WTA Grand Slam matches lasting over 120 minutes differ across court surfaces and years?
+
+## Data: WTA Grand Slam matches
+
+The WTA Grand Slam dataset comes from the SCORE Sports Data Repository and contains women's tennis match records from 2018 to 2022. Each row represents one match. The dataset includes information about match duration, winner ranking, court surface, and tournament date.
+
+The dataset contains `r scales::comma(nrow(sports))` match records.
+
+## Hard courts had the highest percentage of long matches in three of five years
+
+The percentage of matches lasting longer than 120 minutes varies across court surfaces.
+
+```{r}
+#| label: fig-sports-main
+#| ref.label: b3-chosen
+#| fig-alt: "Faceted bar charts comparing the percentage of WTA Grand Slam matches lasting over 120 minutes across Hard, Clay, and Grass courts from 2018 to 2022."
+```
+
+## What the Sports data shows, and its limits
+
+- The percentage of long matches differed across court surfaces and years.
+- Hard courts had the highest percentage in 2018, 2019, and 2022, while Clay had the highest in 2020 and 2021.
+- The smallest panels were 2020 and 2022, with 381 matches each, so those comparisons should be interpreted carefully.
+- Some match-duration values were missing, so not every match could be classified.
+- These results show differences between groups, not the reasons behind those differences.
 
 ## Sources and AI use
 
 <!-- Data citation; one-line AI statement (or "none"). -->
 
-- WRITE: data citation (APA), for each dataset you show.
-- WRITE: "AI use: I used [tool] to [what for]." or "AI use: none."
+- Becker, B., & Kohavi, R. (1996). Adult [Data set]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20
+- Fairlearn. (n.d.). Adult Census dataset. https://fairlearn.org/v0.15/user_guide/datasets/adult_data.html
+- Yurko, R. (2023, May 24). WTA Grand Slam matches. SCORE Sports Data Repository. https://data.scorenetwork.org/tennis/wta-grand-slam-matches.html
+- "AI use: I used ChatGPT to understand R code."

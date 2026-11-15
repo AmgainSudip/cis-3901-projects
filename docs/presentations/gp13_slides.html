@@ -8,7 +8,7 @@
 
 <meta name="author" content="Sudip Amgain">
 
-<title>Comparing Income Patterns and Tennis Match Duration – CIS-3901 Projects</title>
+<title>Income Patterns and Match Statistics: Adult and WTA Tennis Data – CIS-3901 Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,11 +155,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#task-0-see-it-update" id="toc-task-0-see-it-update" class="nav-link active" data-scroll-target="#task-0-see-it-update">Task 0: see it update</a></li>
-  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
+  <li><a href="#question" id="toc-question" class="nav-link active" data-scroll-target="#question">Question</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#write-your-headline" id="toc-write-your-headline" class="nav-link" data-scroll-target="#write-your-headline">WRITE: your headline</a></li>
+  <li><a href="#male-adults-had-a-higher-percentage-earning-above-50000-in-every-race-group" id="toc-male-adults-had-a-higher-percentage-earning-above-50000-in-every-race-group" class="nav-link" data-scroll-target="#male-adults-had-a-higher-percentage-earning-above-50000-in-every-race-group">Male adults had a higher percentage earning above $50,000 in every race group</a></li>
   <li><a href="#what-it-shows-and-its-limits" id="toc-what-it-shows-and-its-limits" class="nav-link" data-scroll-target="#what-it-shows-and-its-limits">What it shows, and its limits</a></li>
+  <li><a href="#question-wta-sports-dataset" id="toc-question-wta-sports-dataset" class="nav-link" data-scroll-target="#question-wta-sports-dataset">Question: WTA Sports dataset</a></li>
+  <li><a href="#data-wta-grand-slam-matches" id="toc-data-wta-grand-slam-matches" class="nav-link" data-scroll-target="#data-wta-grand-slam-matches">Data: WTA Grand Slam matches</a></li>
+  <li><a href="#hard-courts-had-the-highest-percentage-of-long-matches-in-three-of-five-years" id="toc-hard-courts-had-the-highest-percentage-of-long-matches-in-three-of-five-years" class="nav-link" data-scroll-target="#hard-courts-had-the-highest-percentage-of-long-matches-in-three-of-five-years">Hard courts had the highest percentage of long matches in three of five years</a></li>
+  <li><a href="#what-the-sports-data-shows-and-its-limits" id="toc-what-the-sports-data-shows-and-its-limits" class="nav-link" data-scroll-target="#what-the-sports-data-shows-and-its-limits">What the Sports data shows, and its limits</a></li>
   <li><a href="#sources-and-ai-use" id="toc-sources-and-ai-use" class="nav-link" data-scroll-target="#sources-and-ai-use">Sources and AI use</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="gp13_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -169,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Comparing Income Patterns and Tennis Match Duration</h1>
+<h1 class="title">Income Patterns and Match Statistics: Adult and WTA Tennis Data</h1>
 </div>
 
 
@@ -192,59 +195,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!--
-Edit the code in the script. The report and the slides only read it.
-Your words (findings, headlines, limits) live in the report and the slides.
-
-How these slides work
-- The code lives in scripts/gp13_scales_facets.R. No code is pasted here:
-  code typed into a chunk here is ignored on render (the chunk runs the
-  script's code). Fix plots in the script.
-- A plot appears by naming its chunk: copy a figure chunk below and change
-  ref.label to the chunk's name in the script (a1, a2, a3-chosen, a4, a5,
-  b1, b2, b3, b4, b5).
-- At least 4–5 slides; more are welcome. Copy a "##" block to add one.
-- Replace each WRITE: line with your own words, and each fig-alt with one
-  sentence describing YOUR plot.
-- No speaker notes: anything in "::: notes" is public on the web. Keep it
-  out.
--->
-<section id="task-0-see-it-update" class="level2">
-<h2 class="anchored" data-anchor-id="task-0-see-it-update">Task 0: see it update</h2>
-<!-- Task 0 (kickoff): find your new title word here. You can remove this
-slide after the kickoff. -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-a0" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Bar chart counting the rows in each group of one column." width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-a0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="gp13_slides_files/figure-html/fig-a0-1.png" id="fig-a0" class="img-fluid figure-img" alt="Bar chart counting the rows in each group of one column." width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-a0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
 <section id="question" class="level2">
 <h2 class="anchored" data-anchor-id="question">Question</h2>
 <!-- One sentence, naming the groups you compare. -->
-<p>WRITE: your question, naming the groups you compare.</p>
+<p>How does the percentage of adults earning above $50,000 differ between female and male adults across race groups?</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <!-- Where it's from, what one row is, how many rows. -->
-<p>WRITE: where the data are from and what one row is. My Fairness file has 5,000 rows; my Sports file has 2,413 rows.</p>
+<p>The Fairness data is based on 1994 U.S. Census records. Each row represents one adult. My Fairness file has 5,000 rows.</p>
 </section>
-<section id="write-your-headline" class="level2">
-<h2 class="anchored" data-anchor-id="write-your-headline">WRITE: your headline</h2>
+<section id="male-adults-had-a-higher-percentage-earning-above-50000-in-every-race-group" class="level2">
+<h2 class="anchored" data-anchor-id="male-adults-had-a-higher-percentage-earning-above-50000-in-every-race-group">Male adults had a higher percentage earning above $50,000 in every race group</h2>
 <!-- State the finding in one sentence as this slide's heading, then the
 figure. By default it shows your A3 plot, the version you chose. -->
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Not done yet.</code></pre>
+<div class="cell-output-display">
+<div id="fig-headline" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Five panels, one per race group, comparing the percentage of female and male adults earning above $50,000." width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-headline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="gp13_slides_files/figure-html/fig-headline-1.png" id="fig-headline" class="img-fluid figure-img" alt="Five panels, one per race group, comparing the percentage of female and male adults earning above $50,000." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-headline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -253,16 +229,56 @@ figure. By default it shows your A3 plot, the version you chose. -->
 <!-- Differences, not causes; provenance, small groups, what the data can't
 tell us. -->
 <ul>
-<li>WRITE: the difference the figure shows (differences, not causes).</li>
-<li>WRITE: where the data come from, which groups are small (their n), and what the data can’t tell us.</li>
+<li>Male adults had a higher percentage earning above $50,000 in every race group.</li>
+<li>The smallest groups were Other (n = 42) and Amer-Indian-Eskimo (n = 47), so their percentages should be interpreted carefully.</li>
+<li>These plots show differences between groups, not the reasons behind those differences.</li>
+</ul>
+</section>
+<section id="question-wta-sports-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="question-wta-sports-dataset">Question: WTA Sports dataset</h2>
+<p>How does the percentage of WTA Grand Slam matches lasting over 120 minutes differ across court surfaces and years?</p>
+</section>
+<section id="data-wta-grand-slam-matches" class="level2">
+<h2 class="anchored" data-anchor-id="data-wta-grand-slam-matches">Data: WTA Grand Slam matches</h2>
+<p>The WTA Grand Slam dataset comes from the SCORE Sports Data Repository and contains women’s tennis match records from 2018 to 2022. Each row represents one match. The dataset includes information about match duration, winner ranking, court surface, and tournament date.</p>
+<p>The dataset contains 2,413 match records.</p>
+</section>
+<section id="hard-courts-had-the-highest-percentage-of-long-matches-in-three-of-five-years" class="level2">
+<h2 class="anchored" data-anchor-id="hard-courts-had-the-highest-percentage-of-long-matches-in-three-of-five-years">Hard courts had the highest percentage of long matches in three of five years</h2>
+<p>The percentage of matches lasting longer than 120 minutes varies across court surfaces.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sports-main" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Faceted bar charts comparing the percentage of WTA Grand Slam matches lasting over 120 minutes across Hard, Clay, and Grass courts from 2018 to 2022." width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sports-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="gp13_slides_files/figure-html/fig-sports-main-1.png" id="fig-sports-main" class="img-fluid figure-img" alt="Faceted bar charts comparing the percentage of WTA Grand Slam matches lasting over 120 minutes across Hard, Clay, and Grass courts from 2018 to 2022." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-sports-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-the-sports-data-shows-and-its-limits" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-sports-data-shows-and-its-limits">What the Sports data shows, and its limits</h2>
+<ul>
+<li>The percentage of long matches differed across court surfaces and years.</li>
+<li>Hard courts had the highest percentage in 2018, 2019, and 2022, while Clay had the highest in 2020 and 2021.</li>
+<li>The smallest panels were 2020 and 2022, with 381 matches each, so those comparisons should be interpreted carefully.</li>
+<li>Some match-duration values were missing, so not every match could be classified.</li>
+<li>These results show differences between groups, not the reasons behind those differences.</li>
 </ul>
 </section>
 <section id="sources-and-ai-use" class="level2">
 <h2 class="anchored" data-anchor-id="sources-and-ai-use">Sources and AI use</h2>
 <!-- Data citation; one-line AI statement (or "none"). -->
 <ul>
-<li>WRITE: data citation (APA), for each dataset you show.</li>
-<li>WRITE: “AI use: I used [tool] to [what for].” or “AI use: none.”</li>
+<li>Becker, B., &amp; Kohavi, R. (1996). Adult [Data set]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20</li>
+<li>Fairlearn. (n.d.). Adult Census dataset. https://fairlearn.org/v0.15/user_guide/datasets/adult_data.html</li>
+<li>Yurko, R. (2023, May 24). WTA Grand Slam matches. SCORE Sports Data Repository. https://data.scorenetwork.org/tennis/wta-grand-slam-matches.html</li>
+<li>“AI use: I used ChatGPT to understand R code.”</li>
 </ul>
 
 

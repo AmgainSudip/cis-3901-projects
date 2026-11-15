@@ -14,6 +14,7 @@ execute:
   message: false
 ---
 
+<!--
 ::: {.callout-important}
 ## Edit the code in the script. The report and the slides only read it.
 
@@ -22,6 +23,7 @@ headlines, limits) live in the report and the slides. Keep the code chunks
 here empty: on render, each one runs the script's code, so code typed into
 them is ignored. Fix the code in the script.
 :::
+-->
 
 ```{r}
 #| label: project-root
@@ -63,10 +65,7 @@ How to use this template
 -->
 
 ## My data
-
-WRITE: Name your Fairness dataset and your Sports dataset. For each: what one
-row is, how many rows, and where the data come from (cite them in
-References).
+The Fairness section uses an Adult income dataset with 5,000 observations. The plots examine income, sex, race, capital gains, and weekly working hours.
 
 ```{r}
 #| label: data
@@ -82,7 +81,7 @@ References).
 #| ref.label: a0
 #| echo: true
 #| fig-cap: "My first plot: a count of one of my Fairness columns."
-#| fig-alt: "Bar chart counting the rows in each group of one column."
+#| fig-alt: "Bar chart showing the number of adults in each category of the selected Fairness dataset column."
 ```
 
 ```{r}
@@ -90,7 +89,7 @@ References).
 #| include: false
 ```
 
-WRITE (1 sentence): Did your title change show up here and in your slides?
+I changed the plot title and checked that the updated title appeared in both the report and slides.
 
 ### A1 · Label it
 
@@ -99,7 +98,7 @@ WRITE (1 sentence): Did your title change show up here and in your slides?
 #| ref.label: a1
 #| echo: true
 #| fig-cap: "Share of each group with the outcome, labeled for a reader."
-#| fig-alt: "WRITE: one sentence describing what this plot shows."
+#| fig-alt: "Horizontal stacked bar chart comparing income groups by sex."
 ```
 
 ```{r}
@@ -107,8 +106,7 @@ WRITE (1 sentence): Did your title change show up here and in your slides?
 #| include: false
 ```
 
-WRITE (2 sentences): Which label did you change most, and why? Could a reader
-understand this plot without you there?
+The legend title was the label I changed most because the original TRUE and FALSE values were not very descriptive. I changed it to "Income above $50K" to make the outcome clearer. I also added a descriptive title and percentage axis labels. A reader can understand the comparison without needing additional explanations.
 
 ### A2 · Choose a scale
 
@@ -117,7 +115,7 @@ understand this plot without you there?
 #| ref.label: a2
 #| echo: true
 #| fig-cap: "My scale choice."
-#| fig-alt: "WRITE: one sentence describing what this plot shows."
+#| fig-alt: "Histogram showing positive capital gains on a logarithmic scale."
 ```
 
 ```{r}
@@ -125,9 +123,7 @@ understand this plot without you there?
 #| include: false
 ```
 
-WRITE (2–3 sentences): Which scale, and why? What does a reader see with it
-that they wouldn't see without it? If values were removed (0 or below on a
-log scale), say how many.
+I used a logarithmic scale because capital gains are highly right-skewed. It makes smaller positive values easier to examine alongside larger values. I excluded 4,563 zero or negative values because they cannot be displayed on a logarithmic scale.
 
 ### A3 · Facet it: fixed or free
 
@@ -137,7 +133,7 @@ log scale), say how many.
 #| echo: true
 #| fig-cap: "The same rates in panels: fixed and free y-axes."
 #| fig-subcap: ["Fixed", "Free"]
-#| fig-alt: "WRITE: one sentence describing the two plots."
+#| fig-alt: "Faceted column charts comparing income percentages by sex and race, with fixed and free scales."
 #| layout: [[1, 1]]
 ```
 
@@ -158,9 +154,7 @@ knitr::kable(a3_rates, digits = 3)
 #| include: false
 ```
 
-WRITE (3–4 sentences): Fixed or free? What does the reader gain, and what do
-they lose? Which panels or groups are small, and what is their n? Describe
-differences, not causes.
+I chose fixed scales because using the same percentage range makes comparisons between race groups easier. Males had a higher percentage earning above $50,000 in every race group. Some groups had small sample sizes, such as Other (42 people) and American Indian-Eskimo (47 people).
 
 ### A4 · Compared to what?
 
@@ -169,7 +163,7 @@ differences, not causes.
 #| ref.label: a4
 #| echo: true
 #| fig-cap: "Two groups: individual values and resampled means, same axes."
-#| fig-alt: "WRITE: one sentence describing what this plot shows."
+#| fig-alt: "Faceted jitter plots comparing individual and resampled weekly working hours by sex."
 ```
 
 ```{r}
@@ -177,8 +171,7 @@ differences, not causes.
 #| include: false
 ```
 
-WRITE (2–3 sentences): Do the clouds overlap? What does that say about
-individuals versus the group means?
+The individual values overlap considerably, meaning both groups have a wide range of working hours. However, the resampled group means are clearly separated, with males having a higher average weekly working time around 40 hours. This shows that individual differences can overlap even when group averages are different.
 
 ### A5 · Color for every reader
 
@@ -189,7 +182,7 @@ individuals versus the group means?
 #| fig-cap: "My colors, with a second cue, and how a reader with red-green color blindness might see them."
 #| fig-subcap: ["My plot", "Red-green (deuteranopia), simulated"]
 #| fig-alt:
-#|   - "WRITE: one sentence describing what this plot shows."
+#|   - "Bar chart showing adult counts by sex, including color vision simulations"
 #|   - "The same plot in the colors a reader with red-green color blindness (deuteranopia) might see."
 #| layout-ncol: 2
 ```
@@ -216,10 +209,7 @@ individuals versus the group means?
 #| include: false
 ```
 
-WRITE (2–4 sentences): Explain your colors. Say which column you colored by
-and why. If your first choice failed the color check, say what you changed:
-fewer categories, grouping rare ones, or panels. Then look at your simulated
-plot: can you still tell the categories apart?
+I colored the plot by sex to distinguish female and male adults. All three color vision simulations passed the color check, and the categories remained distinguishable in the simulated views.
 
 ## Part B · Sports
 
@@ -230,7 +220,7 @@ plot: can you still tell the categories apart?
 #| ref.label: b1
 #| echo: true
 #| fig-cap: "My Sports plot, labeled for a reader."
-#| fig-alt: "WRITE: one sentence describing what this plot shows."
+#| fig-alt: "Horizontal stacked bar chart comparing match duration groups by court surface."
 ```
 
 ```{r}
@@ -238,7 +228,7 @@ plot: can you still tell the categories apart?
 #| include: false
 ```
 
-WRITE (2 sentences): What does the plot show? Which label helps a reader most?
+I changed the x-axis label the most because the plot shows percentages rather than raw counts. I labeled it "Share of matches (%)" to make that clear. The title, subtitle, and legend also explain what is being compared, so a reader can understand the plot without additional explanation.
 
 ### B2 · Choose a scale
 
@@ -247,7 +237,7 @@ WRITE (2 sentences): What does the plot show? Which label helps a reader most?
 #| ref.label: b2
 #| echo: true
 #| fig-cap: "My scale choice."
-#| fig-alt: "WRITE: one sentence describing what this plot shows."
+#| fig-alt: "Histogram showing winner rankings on a logarithmic scale."
 ```
 
 ```{r}
@@ -255,8 +245,7 @@ WRITE (2 sentences): What does the plot show? Which label helps a reader most?
 #| include: false
 ```
 
-WRITE (2–3 sentences): Which scale, and why? If values were removed, say how
-many.
+I used a logarithmic scale because winner rankings are right-skewed. It makes the distribution easier to examine by showing smaller and larger rankings together. Five observations with missing rankings were removed, while no zero or negative values needed to be excluded.
 
 ### B3 · Facet it: fixed or free
 
@@ -266,7 +255,7 @@ many.
 #| echo: true
 #| fig-cap: "The same plot in panels: fixed and free y-axes."
 #| fig-subcap: ["Fixed", "Free"]
-#| fig-alt: "WRITE: one sentence describing the two plots."
+#| fig-alt: "Faceted column charts comparing long-match percentages by court surface and year, with fixed and free scales."
 #| layout: [[1, 1]]
 ```
 
@@ -275,9 +264,7 @@ many.
 #| include: false
 ```
 
-WRITE (3–4 sentences): Fixed or free? What does the reader gain, and what do
-they lose? Which panels are small, and what is their n? Differences, not
-causes.
+I chose fixed scales because they allow readers to compare match percentages across years using the same y-axis range. This makes differences easier to compare, but smaller changes may be harder to notice. The smallest panels were 2020 and 2022, with 381 matches each. Hard courts had the highest percentage of long matches in 2018, 2019, and 2022, while Clay had the highest in 2020 and 2021. These are differences in the data, not evidence of causes.
 
 ### B4 · Compared to what?
 
@@ -286,7 +273,7 @@ causes.
 #| ref.label: b4
 #| echo: true
 #| fig-cap: "Two groups: individual values and resampled means, same axes."
-#| fig-alt: "WRITE: one sentence describing what this plot shows."
+#| fig-alt: "Faceted jitter plots comparing individual and resampled match durations on Hard and Clay courts."
 ```
 
 ```{r}
@@ -294,8 +281,7 @@ causes.
 #| include: false
 ```
 
-WRITE (2–3 sentences): Do the clouds overlap? What does that say about
-individuals versus the group means?
+The individual values overlap considerably, meaning Clay and Hard court matches can have similar durations, with plenty of variation within each surface. The resampled means are also very close, showing that the average match durations for the two surfaces are nearly the same, even though individual match lengths vary widely.
 
 ### B5 · Color for every reader
 
@@ -306,7 +292,7 @@ individuals versus the group means?
 #| fig-cap: "My colors, with a second cue, and how a reader with red-green color blindness might see them."
 #| fig-subcap: ["My plot", "Red-green (deuteranopia), simulated"]
 #| fig-alt:
-#|   - "WRITE: one sentence describing what this plot shows."
+#|   - "Bar chart showing match counts by court surface, including color vision simulations."
 #|   - "The same plot in the colors a reader with red-green color blindness (deuteranopia) might see."
 #| layout-ncol: 2
 ```
@@ -333,16 +319,10 @@ individuals versus the group means?
 #| include: false
 ```
 
-WRITE (2–4 sentences): Explain your colors. Say which column you colored by
-and why. If your first choice failed the color check, say what you changed:
-fewer categories, grouping rare ones, or panels. Then look at your simulated
-plot: can you still tell the categories apart?
+I colored by the surface column to distinguish Clay, Grass, and Hard courts. I used the Viridis color scale because it provides distinguishable colors. My plot passed the color check without needing to change the categories. In all three simulated views, the categories remain distinguishable.
 
 ## One thing I tried in my slides, and why
-
-WRITE (2–3 sentences): One idea of your own in your slides (an angle, a
-comparison, an order, an annotation), and how it helps a reader see the
-finding.
+I used a finding-based headline instead of a general topic title: “Males had a higher percentage of adults earning above $50,000 in every race group.” This tells the audience the main finding before they look at the chart and makes the comparison easier to follow.
 
 ## Revision log
 
@@ -372,12 +352,11 @@ knitr::kable(checks_table)
 ```
 
 ## AI use
-
-WRITE: one public line only: "AI use: I used [tool] to [what for]." or
-"AI use: none." (Your AI log and conversations go in Blackboard, never here:
-Guided Project page.)
+I used ChatGPT to understand R code.
 
 ## References
+Becker, B., & Kohavi, R. (1996). Adult [Data set]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20
 
-WRITE: APA references for your Fairness dataset (Fairlearn and the original
-source) and your Sports dataset (its SCORE page).
+Fairlearn. (n.d.). Adult Census dataset. https://fairlearn.org/v0.15/user_guide/datasets/adult_data.html
+
+Yurko, R. (2023, May 24). WTA Grand Slam matches. SCORE Sports Data Repository. https://data.scorenetwork.org/tennis/wta-grand-slam-matches.html

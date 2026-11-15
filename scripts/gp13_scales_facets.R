@@ -475,11 +475,12 @@ show_columns(sports)
 # YOUR TURN (kickoff): change one word in the title, then render the report
 # and the slides, and find your word on both pages.
 ## ---- a0 ----
+
 a0_column <- pick_a_column(fairness)
 
 a0 <- ggplot(fairness, aes(y = .data[[a0_column]])) +
   geom_bar() +
-  labs(title = "My Fairness plot", x = "Count", y = a0_column)
+  labs(title = "My Fairness Plot", x = "Count", y = a0_column)
 
 show_plot(a0)
 
@@ -504,19 +505,26 @@ message("A0: Change the title, render the report and the slides, and look ",
 ## ---- a1 ----
 a_data <- fairness %>%
   mutate(
-    group = "replace me",
-    has_outcome = FALSE
+    group = sex,
+    has_outcome = income == ">50K"
   )
 
-a1_base <- NULL
+a_data %>%
+  count(group, has_outcome) %>%
+  print(n = Inf)
+
+a1_base <- ggplot(a_data, aes(y = group, fill = has_outcome)) +
+  geom_bar(position = "fill") +
+  labs(x = "Share of the group", y = NULL, fill = "Income >50K")
+
 
 a1 <- a1_base +
   labs(
-    title = "___",
-    subtitle = "___",
-    x = "___",
-    y = "___",
-    fill = "___"
+    title = "Share Earning Above $50K by Sex",
+    subtitle = "Adult income dataset (n = 5,000)",
+    x = "Percentage of each sex group",
+    y = "Sex",
+    fill = "Income above $50K"
   ) +
   scale_x_continuous(labels = scales::percent)
 
@@ -540,17 +548,18 @@ check("A1", c(
 # check finds any, keep only the values above 0 first and say so in your
 # report.
 ## ---- a2 ----
-a2 <- NULL
 # YOUR TURN: remove the # signs below, then replace each ___.
-# a2 <- fairness %>%
-#   filter(___ > 0) %>%
-#   ggplot(aes(x = ___)) +
-#   geom_histogram(bins = 30) +
-#   scale_x_log10(labels = scales::comma) +
-#   labs(title = "___", x = "___ (units, log scale)", y = "Count")
+sum(fairness$capital_gain <= 0, na.rm = TRUE)
+
+a2 <- fairness %>%
+   filter(capital_gain > 0) %>%
+   ggplot(aes(x = capital_gain)) +
+   geom_histogram(bins = 30) +
+   scale_x_log10(labels = scales::comma) +
+   labs(title = "Distribution of Capital Gains", x = "Capital gain (dollars, log scale)", y = "Count")
 
 # YOUR TURN: one sentence. Why this scale for this column?
-a2_reason <- "___"
+a2_reason <- "Capital gains are highly right-skewed, so a log scale makes the distribution easier to examine."
 
 show_plot(a2)
 
@@ -576,27 +585,30 @@ check("A2", c(
 ## ---- a3 ----
 # YOUR TURN 1: replace "replace me" with your second column (no quotes).
 a3_rates <- a_data %>%
-  mutate(panel = "replace me") %>%
+  mutate(panel = race) %>%
   drop_na(has_outcome) %>%
   add_count(panel, name = "panel_n") %>%
   mutate(panel = paste0(panel, " (n = ", scales::comma(panel_n), ")")) %>%
   group_by(panel, group) %>%
   summarize(n = n(), rate = mean(has_outcome), .groups = "drop")
 
-a3_fixed <- NULL
-a3_free <- NULL
-# YOUR TURN 2: remove the # signs below, then replace each ___.
-# a3_fixed <- ggplot(a3_rates, aes(x = group, y = rate)) +
-#   geom_col() +
-#   facet_wrap(vars(panel)) +
-#   scale_y_continuous(labels = scales::percent) +
-#   labs(title = "___", x = "___", y = "___ (%)")
-# a3_free <- a3_fixed +
-#   facet_wrap(vars(panel), scales = "free_y")
+a3_rates
+
+a3_fixed <- ggplot(a3_rates, aes(x = group, y = rate)) +
+  geom_col() +
+  facet_wrap(vars(panel)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Income Above $50K by Sex and Race",
+    x = "Sex",
+    y = "Percentage earning above $50K"
+  )
+
+a3_free <- a3_fixed + facet_wrap(vars(panel), scales="free_y")
 
 # YOUR TURN 3: which one would you publish, "fixed" or "free_y"? Why?
-a3_choice <- "___"
-a3_reason <- "___"
+a3_choice <- "fixed"
+a3_reason <- "I chose fixed scales because using the same percentage range across all race panels makes comparisons between racial groups easier and more honest."
 
 show_plot(a3_fixed)
 show_plot(a3_free)
@@ -624,19 +636,17 @@ check("A3", todo_facets(a3_fixed, a3_free, a3_choice, a3_reason, "a3"))
 # geom_jitter(width = 0.15, height = 0) spreads the points sideways only,
 # so every value stays at its true height.
 ## ---- a4 ----
-a4_clouds <- NULL
 # YOUR TURN 1: remove the # signs below, then replace each ___: the column
 # with your groups, two of its values, and your numeric column.
-# a4_clouds <- a_data %>%
-#   filter(___ %in% c("___", "___")) %>%
-#   make_clouds(___, ___)
+a4_clouds <- a_data %>%
+   filter(sex %in% c("Female", "Male")) %>%
+   make_clouds(group, hours_per_week)
 
-a4 <- NULL
 # YOUR TURN 2: remove the # signs below, then replace each ___.
-# a4 <- ggplot(a4_clouds, aes(x = group, y = value)) +
-#   geom_jitter(width = 0.15, height = 0, alpha = 0.2) +
-#   facet_wrap(~ kind) +
-#   labs(title = "___", x = "___", y = "___ (units)")
+a4 <- ggplot(a4_clouds, aes(x = group, y = value)) +
+   geom_jitter(width = 0.15, height = 0, alpha = 0.2) +
+   facet_wrap(~ kind) +
+   labs(title = "Weekly Working Hours by Sex", x = "Sex", y = "Hours worked per week")
 
 show_plot(a4)
 
@@ -658,13 +668,12 @@ check("A4", c(todo_plot(a4, "a4"), todo_clouds(a4, "a4")))
 # "Other". Keep small groups visible (their own panel, or their n), and say
 # in your report what you combined.
 ## ---- a5 ----
-a5 <- NULL
 # YOUR TURN: remove the # signs below, then replace each ___ (the same
 # column in both places, so its name is on the axis too).
-# a5 <- ggplot(a_data, aes(y = ___, fill = ___)) +
-#   geom_bar() +
-#   scale_fill_viridis_d(end = 0.8) +
-#   labs(title = "___", x = "Count", y = "___", fill = "___")
+a5 <- ggplot(a_data, aes(y = sex, fill = sex)) +
+   geom_bar() +
+   scale_fill_viridis_d(end = 0.8) +
+   labs(title = "Number of People by Sex", x = "Count", y = "Sex", fill = "Sex")
 
 show_plot(a5)
 
@@ -694,20 +703,36 @@ check("A5", c(todo_plot(a5, "a5"), todo_colors(a5, "a5")))
 ## ---- b1 ----
 b_data <- sports %>%
   mutate(
-    group = "replace me",
-    has_outcome = FALSE,
-    value = NA_real_
+    group = surface,
+    has_outcome = minutes > 120,
+    value = minutes
   )
 
-b1_base <- NULL
+b_data %>%
+  count(group, has_outcome) %>%
+  print(n = Inf)
+
+
+b1_base <- ggplot(
+  b_data,
+  aes(y = group, fill = has_outcome)
+) + geom_bar(position = "fill") + 
+  labs(
+    x = "Share of the group",
+    y = "Court surface",
+    fill = "Match over 120 minutes"
+  )
 
 b1 <- b1_base +
   labs(
-    title = "___",
-    subtitle = "___",
-    x = "___",
-    y = "___"
-  )
+    title = "Long Matches by Court Surface",
+    subtitle = "WTA Grand Slam matches, 2018-2022",
+    x = "Share of matches (%)",
+    y = "Court surface",
+    fill = "Match over 120 minutes"
+  ) + 
+  scale_x_continuous(labels = scales::percent)
+  
 
 show_plot(b1)
 
@@ -723,9 +748,21 @@ check("B1", c(
 # YOUR TURN: as in A2, with a Sports column: a log scale for a skewed
 # column, or percent labels for a share. Then one sentence: why?
 ## ---- b2 ----
-b2 <- NULL
+sum(is.na(sports$winner_rank))
+sum(sports$winner_rank <= 0, na.rm = TRUE)
 
-b2_reason <- "___"
+b2 <- sports %>%
+  filter(!is.na(winner_rank), winner_rank > 0) %>%
+  ggplot(aes(x = winner_rank)) +
+  geom_histogram(bins = 30) +
+  scale_x_log10(labels = scales::comma) +
+  labs(
+    title = "Distribution of Winning Player Rankings",
+    x = "Winner ranking (log scale)",
+    y = "Number of matches"
+  )
+
+b2_reason <- "Player rankings are right-skewed, with many lower numerical rankings and fewer very large rankings. A log scale makes the distribution easier to examine."
 
 show_plot(b2)
 
@@ -745,14 +782,48 @@ check("B2", c(
 # tidyverse). From text or a number such as 20190114:
 # str_sub(column, 1, 4).
 ## ---- b3 ----
-b3_fixed <- NULL
-b3_free <- NULL
+b3_rates <- b_data %>%
+  mutate(
+    panel = as.character(str_sub(as.character(tourney_date), 1, 4))
+  ) %>%
+  drop_na(has_outcome) %>%
+  add_count(panel, name = "panel_n") %>%
+  mutate(panel = paste0(
+    panel, " (n = ", scales::comma(panel_n), ")"
+  )) %>%
+  group_by(panel, group) %>%
+  summarize(
+    n = n(),
+    rate = mean(has_outcome),
+    .groups = "drop"
+  )
 
-b3_choice <- "___"
-b3_reason <- "___"
+b3_rates
+
+b3_fixed <- ggplot(b3_rates, aes(x = group, y = rate)) +
+  geom_col() +
+  facet_wrap(vars(panel)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Long Matches by Surface Across Years",
+    x = "Court surface",
+    y = "Percentage of matches over 120 minutes (%)"
+  )
+
+b3_free <- b3_fixed +
+  facet_wrap(vars(panel), scales = "free_y")
+
+b3_choice <- "fixed"
+b3_reason <- "I chose fixed scales because all panels represent percentages. Using the same scale makes year-to-year comparisons easier."
 
 show_plot(b3_fixed)
 show_plot(b3_free)
+
+## ---- b3-chosen ----
+# The version selected by b3_choice. Slides show this plot.
+b3 <- if (identical(b3_choice, "free_y")) b3_free else b3_fixed
+
+show_plot(b3)
 
 ## ---- b3-check ----
 # Check (don't change): prints PASS or TO DO with a hint.
@@ -763,8 +834,14 @@ check("B3", todo_facets(b3_fixed, b3_free, b3_choice, b3_reason, "b3"))
 # YOUR TURN: as in A4, with a Sports numeric column (your value column, or
 # another) and two groups. Make b4_clouds with make_clouds(), then b4.
 ## ---- b4 ----
-b4_clouds <- NULL
-b4 <- NULL
+b4_clouds <- b_data %>%
+  filter(surface %in% c("Hard", "Clay")) %>%
+  make_clouds(group, minutes)
+
+b4 <- ggplot(b4_clouds, aes(x = group, y = value)) +
+  geom_jitter(width = 0.15, height = 0, alpha = 0.2) +
+  facet_wrap(~ kind) +
+  labs(title = "Match Duration by Court Surface", x = "Court surface", y = "Match duration (minutes)")
 
 show_plot(b4)
 
@@ -777,7 +854,11 @@ check("B4", c(todo_plot(b4, "b4"), todo_clouds(b4, "b4")))
 # YOUR TURN: as in A5, with a Sports column of 2 to 4 categories (or one
 # you make, e.g. with fct_lump_n() or if_else()). Run color_check(b5).
 ## ---- b5 ----
-b5 <- NULL
+b5 <- ggplot(b_data, aes(y = surface, fill = surface)) +
+  geom_bar() +
+  scale_fill_viridis_d(end = 0.8) +
+  labs(title = "Number of Matches by Court Surface", x = "Count", y = "Court Surface", fill = "Court Surface")
+
 
 show_plot(b5)
 
