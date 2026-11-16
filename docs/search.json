@@ -269,8 +269,8 @@
     "objectID": "presentations/gp13_slides.html#question",
     "href": "presentations/gp13_slides.html#question",
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
-    "section": "",
-    "text": "How does the percentage of adults earning above $50,000 differ between female and male adults across race groups?"
+    "section": "Question",
+    "text": "Question\n\nHow does the percentage of adults earning above $50,000 differ between female and male adults across race groups?"
   },
   {
     "objectID": "presentations/gp13_slides.html#data",
@@ -375,7 +375,7 @@
     "href": "presentations/gp13_slides.html#male-adults-had-a-higher-percentage-earning-above-50000-in-every-race-group",
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
     "section": "Male adults had a higher percentage earning above $50,000 in every race group",
-    "text": "Male adults had a higher percentage earning above $50,000 in every race group\n\n\n\n\n\n\n\n\n\nFigure 1"
+    "text": "Male adults had a higher percentage earning above $50,000 in every race group\n\n\n\nFigure 1"
   },
   {
     "objectID": "presentations/gp13_slides.html#question-wta-sports-dataset",
@@ -452,6 +452,6 @@
     "href": "presentations/gp13_slides.html#hard-courts-had-the-highest-percentage-of-long-matches-in-three-of-five-years",
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
     "section": "Hard courts had the highest percentage of long matches in three of five years",
-    "text": "Hard courts had the highest percentage of long matches in three of five years\nThe percentage of matches lasting longer than 120 minutes varies across court surfaces.\n\n\n\n\n\n\n\n\nFigure 2"
+    "text": "Hard courts had the highest percentage of long matches in three of five years\nThe percentage of matches lasting longer than 120 minutes varies across court surfaces.\n\n\nFigure 2"
   }
 ]

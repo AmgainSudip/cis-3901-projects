@@ -10,7 +10,7 @@ execute:
   message: false
 ---
 
-## Question
+## Question: Fairness Adult dataset
 
 <!-- One sentence, naming the groups you compare. -->
 
@@ -52,7 +52,7 @@ knitr::read_chunk("scripts/gp13_scales_facets.R")
 #|   - b5
 ```
 
-## Data
+## Data: Adult dataset
 
 <!-- Where it's from, what one row is, how many rows. -->
 
