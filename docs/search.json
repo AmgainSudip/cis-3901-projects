@@ -453,5 +453,19 @@
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
     "section": "Hard courts had the highest percentage of long matches in three of five years",
     "text": "Hard courts had the highest percentage of long matches in three of five years\nThe percentage of matches lasting longer than 120 minutes varies across court surfaces.\n\n\nFigure 2"
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#question-fairness-adult-dataset",
+    "href": "presentations/gp13_slides.html#question-fairness-adult-dataset",
+    "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
+    "section": "Question: Fairness Adult dataset",
+    "text": "Question: Fairness Adult dataset\n\nHow does the percentage of adults earning above $50,000 differ between female and male adults across race groups?"
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#data-adult-dataset",
+    "href": "presentations/gp13_slides.html#data-adult-dataset",
+    "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
+    "section": "Data: Adult dataset",
+    "text": "Data: Adult dataset\n\nThe Fairness data is based on 1994 U.S. Census records. Each row represents one adult. My Fairness file has 5,000 rows."
   }
 ]
