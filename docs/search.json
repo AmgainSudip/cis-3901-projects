@@ -340,7 +340,7 @@
     "href": "reports/gp13_report.html#revision-log",
     "title": "Guided Project: Scales and Facets",
     "section": "Revision log",
-    "text": "Revision log\n\nFill this in for the final: three to five changes to your report or slides. For each: what changed, why, and which idea from Module 14 it uses.\n\n\n\nChange\nWhy\nModule 14 idea"
+    "text": "Revision log\n\nFill this in for the final: three to five changes to your report or slides. For each: what changed, why, and which idea from Module 14 it uses.\n\n\n\n\n\n\n\n\nChange\nWhy\nModule 14 idea\n\n\n\n\nAdded a caption to the Adult graph explaining it.\nMakes graph easier to understand.\nP4\n\n\nAdded a caption to the Sport graph explaining it.\nMakes graph easier to understand\nP4\n\n\nAdded a “Why it matters” section to Adult slides.\nMakes us think about other factors related to income.\nP1\n\n\nAdded a “Why it matters” section to Sport slides.\nMakes us think about other factors related to match duration.\nP1\n\n\nSpecified the 133 missing values\nTells the limitation about the data.\nP1"
   },
   {
     "objectID": "reports/gp13_report.html#checks",
@@ -375,7 +375,7 @@
     "href": "presentations/gp13_slides.html#male-adults-had-a-higher-percentage-earning-above-50000-in-every-race-group",
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
     "section": "Male adults had a higher percentage earning above $50,000 in every race group",
-    "text": "Male adults had a higher percentage earning above $50,000 in every race group\n\n\n\nFigure 1"
+    "text": "Male adults had a higher percentage earning above $50,000 in every race group\n\n\n\nFigure 1: Each panel compares the percentage of female and male adults earning above $50,000 within a race group."
   },
   {
     "objectID": "presentations/gp13_slides.html#question-wta-sports-dataset",
@@ -431,7 +431,7 @@
     "href": "presentations/gp13_slides.html#what-the-sports-data-shows-and-its-limits",
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
     "section": "What the Sports data shows, and its limits",
-    "text": "What the Sports data shows, and its limits\n\nThe percentage of long matches differed across court surfaces and years.\nHard courts had the highest percentage in 2018, 2019, and 2022, while Clay had the highest in 2020 and 2021.\nThe smallest panels were 2020 and 2022, with 381 matches each, so those comparisons should be interpreted carefully.\nSome match-duration values were missing, so not every match could be classified.\nThese results show differences between groups, not the reasons behind those differences."
+    "text": "What the Sports data shows, and its limits\n\nThe percentage of long matches differed across court surfaces and years.\nHard courts had the highest percentage in 2018, 2019, and 2022, while Clay had the highest in 2020 and 2021.\n133 match-duration values were missing, so not every match could be classified.\nThese results show differences between groups, not the reasons behind those differences."
   },
   {
     "objectID": "presentations/gp13_slides.html#data-wta-grand-slam-matches",
@@ -452,7 +452,7 @@
     "href": "presentations/gp13_slides.html#hard-courts-had-the-highest-percentage-of-long-matches-in-three-of-five-years",
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
     "section": "Hard courts had the highest percentage of long matches in three of five years",
-    "text": "Hard courts had the highest percentage of long matches in three of five years\nThe percentage of matches lasting longer than 120 minutes varies across court surfaces.\n\n\nFigure 2"
+    "text": "Hard courts had the highest percentage of long matches in three of five years\n\n\nFigure 2: Each panel compares the percentage of long matches across court surfaces in one year."
   },
   {
     "objectID": "presentations/gp13_slides.html#question-fairness-adult-dataset",
@@ -467,5 +467,19 @@
     "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
     "section": "Data: Adult dataset",
     "text": "Data: Adult dataset\n\nThe Fairness data is based on 1994 U.S. Census records. Each row represents one adult. My Fairness file has 5,000 rows."
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#why-it-matters",
+    "href": "presentations/gp13_slides.html#why-it-matters",
+    "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
+    "section": "Why it matters",
+    "text": "Why it matters\nThese differences raise questions about how education, occupation, and working hours may be related to income. Exploring these factors could help explain patterns that this comparison alone cannot answer."
+  },
+  {
+    "objectID": "presentations/gp13_slides.html#why-it-matters-1",
+    "href": "presentations/gp13_slides.html#why-it-matters-1",
+    "title": "Income Patterns and Match Statistics: Adult and WTA Tennis Data",
+    "section": "Why it matters",
+    "text": "Why it matters\nThese patterns raise further questions about why match duration varies across surfaces and years. Player matchups and tournament conditions could be interesting factors to explore in a future analysis."
   }
 ]

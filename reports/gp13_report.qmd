@@ -333,9 +333,13 @@ For each: what changed, why, and which idea from Module 14 it uses.
 
 | Change | Why | Module 14 idea |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+| Added a caption to the Adult graph explaining it.| Makes graph easier to understand.| P4|
+| Added a caption to the Sport graph explaining it.| Makes graph easier to understand| P4|
+| Added a "Why it matters" section to Adult slides.| Makes us think about other factors related to income.| P1|
+| Added a "Why it matters" section to Sport slides.| Makes us think about other factors related to match duration.| P1|
+| Specified the 133 missing values| Tells the limitation about the data.| P1|
+
+
 
 ## Checks
 

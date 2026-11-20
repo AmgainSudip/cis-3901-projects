@@ -44,6 +44,7 @@ knitr::read_chunk("scripts/gp13_scales_facets.R")
 #|   - a3-chosen
 #|   - a4
 #|   - a5
+#|   - b0
 #|   - b1
 #|   - b2
 #|   - b3
@@ -59,7 +60,6 @@ knitr::read_chunk("scripts/gp13_scales_facets.R")
 The Fairness data is based on 1994 U.S. Census records. Each row represents one adult. My Fairness file has
 `r scales::comma(nrow(fairness))` rows.
 
-
 ## Male adults had a higher percentage earning above $50,000 in every race group
 
 <!-- State the finding in one sentence as this slide's heading, then the
@@ -68,6 +68,7 @@ figure. By default it shows your A3 plot, the version you chose. -->
 ```{r}
 #| label: fig-headline
 #| ref.label: a3-chosen
+#| fig-cap: "Each panel compares the percentage of female and male adults earning above $50,000 within a race group."
 #| fig-alt: "Five panels, one per race group, comparing the percentage of female and male adults earning above $50,000."
 ```
 
@@ -79,6 +80,9 @@ tell us. -->
 - The smallest groups were Other (n = 42) and Amer-Indian-Eskimo (n = 47), so their percentages should be interpreted carefully.
 - These plots show differences between groups, not the reasons behind those differences.
 
+## Why it matters
+
+These differences raise questions about how education, occupation, and working hours may be related to income. Exploring these factors could help explain patterns that this comparison alone cannot answer.
 
 ## Question: WTA Sports dataset
 
@@ -92,11 +96,10 @@ The dataset contains `r scales::comma(nrow(sports))` match records.
 
 ## Hard courts had the highest percentage of long matches in three of five years
 
-The percentage of matches lasting longer than 120 minutes varies across court surfaces.
-
 ```{r}
 #| label: fig-sports-main
 #| ref.label: b3-chosen
+#| fig-cap: "Each panel compares the percentage of long matches across court surfaces in one year."
 #| fig-alt: "Faceted bar charts comparing the percentage of WTA Grand Slam matches lasting over 120 minutes across Hard, Clay, and Grass courts from 2018 to 2022."
 ```
 
@@ -104,9 +107,12 @@ The percentage of matches lasting longer than 120 minutes varies across court su
 
 - The percentage of long matches differed across court surfaces and years.
 - Hard courts had the highest percentage in 2018, 2019, and 2022, while Clay had the highest in 2020 and 2021.
-- The smallest panels were 2020 and 2022, with 381 matches each, so those comparisons should be interpreted carefully.
-- Some match-duration values were missing, so not every match could be classified.
+- 133 match-duration values were missing, so not every match could be classified.
 - These results show differences between groups, not the reasons behind those differences.
+
+## Why it matters
+
+These patterns raise further questions about why match duration varies across surfaces and years. Player matchups and tournament conditions could be interesting factors to explore in a future analysis.
 
 ## Sources and AI use
 
